@@ -23,7 +23,6 @@ android {
 }
 
 dependencies {
-    // Va a "conectar" las capas en DI
     implementation(project(":core-network"))
 
     implementation(libs.hilt.android)
