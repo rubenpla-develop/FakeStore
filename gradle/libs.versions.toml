@@ -12,7 +12,7 @@ composeBom = "2024.09.00"
 splashscreen = "1.0.1"
 navigationCompose = "2.8.4"
 coroutines = "1.9.0"
-hilt = "2.52"
+hilt = "2.55"
 hiltNavigationCompose = "1.2.0"
 retrofit = "2.11.0"
 moshi = "1.15.1"
@@ -67,8 +67,9 @@ kotest-assertions-core = { group = "io.kotest", name = "kotest-assertions-core",
 
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library" }
+android-application = { id = "com.android.application" }
 kotlin-android = { id = "org.jetbrains.kotlin.android" }
-kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose" }
+hilt = { id = "com.google.dagger.hilt.android" }
 spotless = { id = "com.diffplug.spotless", version = "6.25.0" }
