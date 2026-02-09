@@ -1,9 +1,6 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-
-    kotlin("kapt")
-    alias(libs.plugins.hilt)
 }
 
 android {
@@ -19,15 +16,12 @@ android {
 }
 
 dependencies {
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.moshi)
+    api(libs.retrofit)
+    api(libs.retrofit.converter.moshi)
 
-    implementation(libs.okhttp)
-    implementation(libs.okhttp.logging.interceptor)
+    api(libs.okhttp)
+    api(libs.okhttp.logging.interceptor)
 
-    implementation(libs.moshi)
-    implementation(libs.moshi.kotlin)
-
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    api(libs.moshi)
+    api(libs.moshi.kotlin)
 }
