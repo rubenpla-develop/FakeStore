@@ -16,9 +16,12 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.rpla.core_ui.model.UiListItem
+import com.rpla.core_ui.theme.FakeStoreTheme
 import com.rpla.core_ui.view.LoadingItem
 import com.rpla.core_ui.view.ProductItem
 import com.rpla.feature_products.ui.viewmodel.ProductListIntent
@@ -99,5 +102,63 @@ fun ProductList(
                 }
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview_ProductList_Loading() {
+    FakeStoreTheme {
+        ProductList(
+            uiState = ProductListState.LoadingState,
+            paddingValues = PaddingValues(0.dp),
+            onRetry = {},
+            onFavoriteClicked = {},
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview_ProductList_Error() {
+    FakeStoreTheme {
+        ProductList(
+            uiState = ProductListState.ErrorState("Network error"),
+            paddingValues = PaddingValues(0.dp),
+            onRetry = {},
+            onFavoriteClicked = {},
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview_ProductList_Content() {
+    FakeStoreTheme {
+        ProductList(
+            uiState = ProductListState.ProductsListData(
+                items = listOf(
+                    UiListItem(
+                        id = 1,
+                        title = "WD 2TB Elements Portable External Hard Drive - USB 3.0",
+                        price = "64.00 €",
+                        category = "electronics",
+                        imageUrl = "https://via.placeholder.com/300",
+                        isFavorite = false,
+                    ),
+                    UiListItem(
+                        id = 2,
+                        title = "White Gold Plated Princess",
+                        price = "9.99 €",
+                        category = "jewelery",
+                        imageUrl = "https://via.placeholder.com/300",
+                        isFavorite = true,
+                    ),
+                )
+            ),
+            paddingValues = PaddingValues(0.dp),
+            onRetry = {},
+            onFavoriteClicked = {},
+        )
     }
 }

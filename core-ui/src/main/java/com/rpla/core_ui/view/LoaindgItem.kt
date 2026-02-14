@@ -8,7 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.rpla.core_ui.theme.FakeStoreTheme
 import com.rpla.core_ui.view.testtags.TestTags.LOADING_ITEM
 import com.rpla.core_ui.theme.PinkA400
 
@@ -25,4 +27,13 @@ fun LoadingItem() {
             ),
         color = PinkA400,
     )
+}
+
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview_LoadingItem() {
+    FakeStoreTheme {
+        LoadingItem()
+    }
 }
