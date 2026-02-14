@@ -1,6 +1,6 @@
 package com.rpla.core_di
 
-import com.rpla.core_di.dispatcher.IODispatcher
+import com.rpla.core.coroutines.dispatcher.IODispatcher
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

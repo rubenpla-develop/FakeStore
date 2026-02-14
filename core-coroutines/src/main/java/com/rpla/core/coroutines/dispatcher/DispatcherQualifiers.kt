@@ -1,4 +1,4 @@
-package com.rpla.core_di.dispatcher
+package com.rpla.core.coroutines.dispatcher
 
 import javax.inject.Qualifier
 

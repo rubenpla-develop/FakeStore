@@ -39,9 +39,10 @@ include(":core-model")
 include(":core-network")
 include(":core-database")
 include(":core-data")
-
 include(":core-di")
+include(":core-coroutines")
 
 include(":feature-products")
 //include(":feature-favorites")
 //include(":feature-profile")
+
