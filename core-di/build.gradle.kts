@@ -24,6 +24,7 @@ android {
 
 dependencies {
     implementation(project(":core-network"))
+    implementation(project(":core-coroutines"))
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
