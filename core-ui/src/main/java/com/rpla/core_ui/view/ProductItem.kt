@@ -31,6 +31,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -38,6 +39,7 @@ import androidx.constraintlayout.compose.Dimension
 import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
 import com.rpla.core_ui.model.UiListItem
+import com.rpla.core_ui.theme.FakeStoreTheme
 import com.rpla.core_ui.view.testtags.TestTags.PRODUCT_ITEM
 import com.rpla.core_ui.view.testtags.TestTags.PRODUCT_NAME
 import com.rpla.core_ui.view.testtags.TestTags.PRODUCT_STATUS
@@ -197,5 +199,41 @@ fun ProductItem(
                     },
             )
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview_ProductItem_Normal() {
+    FakeStoreTheme {
+        ProductItem(
+            product = UiListItem(
+                id = 1,
+                title = "WD 2TB Elements Portable External Hard Drive - USB 3.0",
+                price = "64.00 €",
+                category = "electronics",
+                imageUrl = "https://via.placeholder.com/300",
+                isFavorite = false,
+            ),
+            onFavoriteIconClicked = {},
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun Preview_ProductItem_Favorite() {
+    FakeStoreTheme {
+        ProductItem(
+            product = UiListItem(
+                id = 2,
+                title = "White Gold Plated Princess",
+                price = "9.99 €",
+                category = "jewelery",
+                imageUrl = "https://via.placeholder.com/300",
+                isFavorite = true,
+            ),
+            onFavoriteIconClicked = {},
+        )
     }
 }

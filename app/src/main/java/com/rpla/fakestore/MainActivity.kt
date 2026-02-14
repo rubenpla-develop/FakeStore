@@ -87,8 +87,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+private fun Preview_FakeStoreApp() {
     FakeStoreTheme {
-        Greeting("Android")
+        FakeStoreApp()
     }
 }
