@@ -1,4 +1,4 @@
-package com.rpla.fakestore.ui.theme
+package com.rpla.core_ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
