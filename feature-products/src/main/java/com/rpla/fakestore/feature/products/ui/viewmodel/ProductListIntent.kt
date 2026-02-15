@@ -4,4 +4,8 @@ import com.rpla.fakestore.core.ui.view.viewmodel.ViewIntent
 
 sealed class ProductListIntent : ViewIntent {
     data object ProductList : ProductListIntent()
+
+    data class ToggleFavorite(
+        val productId: Int,
+    ) : ProductListIntent()
 }
