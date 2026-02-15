@@ -16,10 +16,13 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Warning
+import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -40,6 +43,7 @@ import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
 import com.rpla.fakestore.core.ui.model.UiListItem
 import com.rpla.fakestore.core.ui.theme.FakeStoreTheme
+import com.rpla.fakestore.core.ui.view.testtags.TestTags.PRODUCT_FAVORITE_ICON
 import com.rpla.fakestore.core.ui.view.testtags.TestTags.PRODUCT_ITEM
 import com.rpla.fakestore.core.ui.view.testtags.TestTags.PRODUCT_NAME
 import com.rpla.fakestore.core.ui.view.testtags.TestTags.PRODUCT_STATUS
@@ -121,6 +125,34 @@ fun ProductItem(
                     }
                 },
             )
+
+            val isFilled =
+                when (favoriteIconMode) {
+                    FavoriteIconMode.Toggle -> product.isFavorite
+                    FavoriteIconMode.RemoveOnly -> true
+                }
+
+            Box(
+                modifier =
+                    Modifier
+                        .padding(8.dp)
+                        .size(28.dp)
+                        .clip(RoundedCornerShape(10.dp))
+                        .background(Color.DarkGray.copy(alpha = 0.75f))
+                        .border(BorderStroke(1.dp, Color.LightGray), RoundedCornerShape(10.dp))
+                        .constrainAs(favIcon) {
+                            top.linkTo(title.bottom)
+                            start.linkTo(parent.start)
+                        }.testTag(PRODUCT_FAVORITE_ICON),
+            ) {
+                IconButton(onClick = { onFavoriteIconClicked(product.id) }) {
+                    Icon(
+                        imageVector = if (isFilled) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
+                        contentDescription = "Favorite",
+                        tint = Color.White,
+                    )
+                }
+            }
 
             Spacer(
                 modifier =
