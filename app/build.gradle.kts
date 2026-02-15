@@ -39,7 +39,7 @@ dependencies {
 
     implementation(project(":feature-products"))
     implementation(project(":feature-favorites"))
-    // implementation(project(":feature-profile"))
+    implementation(project(":feature-profile"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.material3)
