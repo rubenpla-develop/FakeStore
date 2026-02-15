@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.spotless)
+
     kotlin("kapt")
     alias(libs.plugins.hilt)
 }
@@ -37,7 +38,7 @@ dependencies {
     implementation(project(":core-di"))
 
     implementation(project(":feature-products"))
-    // implementation(project(":feature-favorites"))
+    implementation(project(":feature-favorites"))
     // implementation(project(":feature-profile"))
 
     implementation(platform(libs.androidx.compose.bom))

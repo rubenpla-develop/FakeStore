@@ -46,3 +46,4 @@ include(":feature-products")
 //include(":feature-favorites")
 //include(":feature-profile")
 
+include(":feature-favorites")
