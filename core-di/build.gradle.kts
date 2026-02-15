@@ -25,7 +25,13 @@ android {
 dependencies {
     implementation(project(":core-network"))
     implementation(project(":core-coroutines"))
+    implementation(project(":core-database"))
+    implementation(project(":core-data"))
+    implementation(project(":core-domain"))
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
 }
