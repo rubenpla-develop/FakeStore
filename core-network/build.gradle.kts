@@ -16,6 +16,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":core-domain"))
+    implementation(libs.javax.inject)
+
     api(libs.retrofit)
     api(libs.retrofit.converter.moshi)
 
