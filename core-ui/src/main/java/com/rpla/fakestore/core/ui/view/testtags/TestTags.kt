@@ -10,6 +10,8 @@ object TestTags {
 
     // PROFILE
     const val PROFILE_DETAILS = "profile_details"
+    const val PROFILE_FAVORITES_COUNT = "profile_favorites_count"
+    const val PROFILE_EMAIL = "profile_email"
 
     // COMMON
     const val LOADING_ITEM = "loading_item"
