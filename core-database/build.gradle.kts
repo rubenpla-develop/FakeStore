@@ -20,5 +20,6 @@ android {
 dependencies {
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
+    //noinspection KaptUsageInsteadOfKsp
     kapt(libs.room.compiler)
 }
