@@ -1,4 +1,4 @@
-package com.rpla.fakestore.feature.favorites.domain.usecase
+package com.rpla.fakestore.core.domain.usecase.favorites
 
 import com.rpla.fakestore.core.domain.base.BaseUseCase
 import com.rpla.fakestore.core.domain.entity.ResultBundle
