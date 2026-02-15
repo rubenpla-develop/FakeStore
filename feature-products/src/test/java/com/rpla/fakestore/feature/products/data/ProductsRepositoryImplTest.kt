@@ -2,7 +2,7 @@ package com.rpla.fakestore.feature.products.data
 
 import com.rpla.fakestore.core.domain.entity.ErrorResult
 import com.rpla.fakestore.core.domain.entity.ResultBundle
-import com.rpla.fakestore.feature.products.data.mapper.ErrorMapper
+import com.rpla.fakestore.core.network.mapper.ErrorMapper
 import com.rpla.fakestore.feature.products.data.remote.ProductsService
 import com.rpla.fakestore.feature.products.fixtures.ProductDtoFixtures.dto1
 import io.kotest.matchers.shouldBe

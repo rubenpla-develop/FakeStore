@@ -1,4 +1,4 @@
-package com.rpla.fakestore.feature.products.data.mapper
+package com.rpla.fakestore.core.network.mapper
 
 import com.rpla.fakestore.core.domain.entity.ErrorResult
 import com.rpla.fakestore.core.domain.entity.ResultBundle
