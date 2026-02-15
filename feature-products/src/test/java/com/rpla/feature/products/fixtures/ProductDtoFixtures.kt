@@ -1,6 +1,6 @@
-package com.rpla.feature.products.fixtures
+package com.rpla.fakestore.feature.products.fixtures
 
-import com.rpla.feature.products.data.remote.dto.ProductDto
+import com.rpla.fakestore.feature.products.data.remote.dto.ProductDto
 
 object ProductDtoFixtures {
     fun dto1() =

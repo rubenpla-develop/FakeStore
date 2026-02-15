@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.rpla.core.coroutines"
+    namespace = "com.rpla.fakestore.core.coroutines"
     compileSdk {
         version = release(36)
     }

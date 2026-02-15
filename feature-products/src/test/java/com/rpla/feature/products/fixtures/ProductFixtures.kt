@@ -1,6 +1,6 @@
-package com.rpla.feature.products.fixtures
+package com.rpla.fakestore.feature.products.fixtures
 
-import com.rpla.core.model.Product
+import com.rpla.fakestore.core.model.Product
 
 object ProductFixtures {
     fun product1(isFavorite: Boolean = false) =

@@ -1,7 +1,7 @@
-package com.rpla.feature.products.data.mapper
+package com.rpla.fakestore.feature.products.data.mapper
 
-import com.rpla.core.domain.entity.ErrorResult
-import com.rpla.core.network.exception.RemoteException
+import com.rpla.fakestore.core.domain.entity.ErrorResult
+import com.rpla.fakestore.core.network.exception.RemoteException
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 

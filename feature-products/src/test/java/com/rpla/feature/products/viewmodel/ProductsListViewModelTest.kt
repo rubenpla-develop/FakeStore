@@ -1,14 +1,14 @@
-package com.rpla.feature.products.viewmodel
+package com.rpla.fakestore.feature.products.viewmodel
 
-import com.rpla.core.domain.entity.ErrorResult
-import com.rpla.core.domain.entity.ResultBundle
-import com.rpla.feature.products.domain.GetProductListRequest
-import com.rpla.feature.products.domain.usecase.GetProductsListUseCase
-import com.rpla.feature.products.fixtures.ProductFixtures.product1
-import com.rpla.feature.products.fixtures.ProductFixtures.product4
-import com.rpla.feature.products.ui.viewmodel.ProductListIntent
-import com.rpla.feature.products.ui.viewmodel.ProductListState
-import com.rpla.feature.products.ui.viewmodel.ProductsListViewModel
+import com.rpla.fakestore.core.domain.entity.ErrorResult
+import com.rpla.fakestore.core.domain.entity.ResultBundle
+import com.rpla.fakestore.feature.products.domain.GetProductListRequest
+import com.rpla.fakestore.feature.products.domain.usecase.GetProductsListUseCase
+import com.rpla.fakestore.feature.products.fixtures.ProductFixtures.product1
+import com.rpla.fakestore.feature.products.fixtures.ProductFixtures.product4
+import com.rpla.fakestore.feature.products.ui.viewmodel.ProductListIntent
+import com.rpla.fakestore.feature.products.ui.viewmodel.ProductListState
+import com.rpla.fakestore.feature.products.ui.viewmodel.ProductsListViewModel
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.coVerify
