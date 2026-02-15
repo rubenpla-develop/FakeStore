@@ -27,6 +27,7 @@ import androidx.navigation.compose.rememberNavController
 import com.rpla.fakestore.core.ui.theme.FakeStoreTheme
 import com.rpla.fakestore.feature.favorites.ui.view.FavoritesRoute
 import com.rpla.fakestore.feature.products.ui.view.ProductsRoute
+import com.rpla.fakestore.feature.profile.ui.view.ProfileRoute
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -89,7 +90,7 @@ private fun FakeStoreApp() {
                 FavoritesRoute(paddingValues = innerPadding)
             }
             composable(AppDestinations.PROFILE.route) {
-                Text("Profile") // TODO
+                ProfileRoute(paddingValues = innerPadding)
             }
         }
     }
