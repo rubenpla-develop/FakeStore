@@ -1,11 +1,11 @@
-package com.rpla.feature.products.domain.usecase
+package com.rpla.fakestore.feature.products.domain.usecase
 
-import com.rpla.core.domain.entity.ErrorResult
-import com.rpla.core.domain.entity.ResultBundle
-import com.rpla.core.model.Product
-import com.rpla.feature.products.domain.GetProductListRequest
-import com.rpla.feature.products.domain.repository.ProductsRepository
-import com.rpla.feature.products.fixtures.ProductFixtures.product1
+import com.rpla.fakestore.core.domain.entity.ErrorResult
+import com.rpla.fakestore.core.domain.entity.ResultBundle
+import com.rpla.fakestore.core.model.Product
+import com.rpla.fakestore.feature.products.domain.GetProductListRequest
+import com.rpla.fakestore.feature.products.domain.repository.ProductsRepository
+import com.rpla.fakestore.feature.products.fixtures.ProductFixtures.product1
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.coVerify

@@ -24,8 +24,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.rpla.core.ui.theme.FakeStoreTheme
-import com.rpla.feature.products.ui.view.ProductsRoute
+import com.rpla.fakestore.core.ui.theme.FakeStoreTheme
+import com.rpla.fakestore.feature.products.ui.view.ProductsRoute
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -82,7 +82,7 @@ private fun FakeStoreApp() {
             modifier = Modifier.padding(innerPadding),
         ) {
             composable(AppDestinations.PRODUCTS.route) {
-                ProductsRoute(
+                _root_ide_package_.com.rpla.fakestore.feature.products.ui.view.ProductsRoute(
                     paddingValues = innerPadding,
                     onFavoriteClicked = { /* TODO */ },
                 )

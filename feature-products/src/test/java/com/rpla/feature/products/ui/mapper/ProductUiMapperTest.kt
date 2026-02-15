@@ -1,7 +1,7 @@
-package com.rpla.feature.products.ui.mapper
+package com.rpla.fakestore.feature.products.ui.mapper
 
-import com.rpla.feature.products.fixtures.ProductFixtures.product1
-import com.rpla.feature.products.fixtures.ProductFixtures.product3
+import com.rpla.fakestore.feature.products.fixtures.ProductFixtures.product1
+import com.rpla.fakestore.feature.products.fixtures.ProductFixtures.product3
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 
