@@ -24,8 +24,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.rpla.core_ui.theme.FakeStoreTheme
-import com.rpla.feature_products.ui.view.ProductsRoute
+import com.rpla.core.ui.theme.FakeStoreTheme
+import com.rpla.feature.products.ui.view.ProductsRoute
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -53,9 +53,10 @@ private fun FakeStoreApp() {
         bottomBar = {
             NavigationBar {
                 AppDestinations.entries.forEach { destination ->
-                    val selected = currentDestination
-                        ?.hierarchy
-                        ?.any { it.route == destination.route } == true
+                    val selected =
+                        currentDestination
+                            ?.hierarchy
+                            ?.any { it.route == destination.route } == true
 
                     NavigationBarItem(
                         selected = selected,
