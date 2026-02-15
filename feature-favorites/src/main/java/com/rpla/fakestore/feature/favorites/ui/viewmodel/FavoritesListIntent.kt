@@ -4,5 +4,8 @@ import com.rpla.fakestore.core.ui.view.viewmodel.ViewIntent
 
 sealed interface FavoritesListIntent : ViewIntent {
     data object FavoritesList : FavoritesListIntent
-    data class RemoveFavorite(val productId: Int) : FavoritesListIntent
+
+    data class RemoveFavorite(
+        val productId: Int,
+    ) : FavoritesListIntent
 }
