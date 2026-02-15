@@ -6,6 +6,7 @@ object TestTags {
     const val PRODUCT_ITEM = "product_item"
     const val PRODUCT_NAME = "product_name"
     const val PRODUCT_STATUS = "product_status"
+    const val PRODUCT_FAVORITE_ICON = "product_favorite_icon"
 
     // PROFILE
     const val PROFILE_DETAILS = "profile_details"

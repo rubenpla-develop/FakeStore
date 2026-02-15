@@ -47,6 +47,8 @@ import com.rpla.fakestore.core.ui.view.testtags.TestTags.PRODUCT_STATUS
 @Composable
 fun ProductItem(
     product: UiListItem,
+    favoriteIconMode: FavoriteIconMode,
+    onItemClick: () -> Unit,
     onFavoriteIconClicked: (id: Int) -> Unit,
 ) {
     Card(
@@ -59,13 +61,13 @@ fun ProductItem(
                 .height(200.dp)
                 .fillMaxWidth()
                 .clickable {
-                    onFavoriteIconClicked(product.id)
+                    onItemClick()
                 }.testTag(PRODUCT_ITEM),
     ) {
         ConstraintLayout {
             val (
-                name, species, status, photo, spacerTop, spacerStart,
-                spacerBottom, spacerEnd,
+                title, category, price, photo, spacerTop, spacerStart,
+                spacerBottom, spacerEnd, favIcon,
             ) = createRefs()
 
             SubcomposeAsyncImage(
@@ -171,7 +173,7 @@ fun ProductItem(
                         .background(Color.DarkGray, RoundedCornerShape(4.dp))
                         .border(1.dp, Color.LightGray, RoundedCornerShape(4.dp))
                         .padding(top = 1.dp, start = 3.dp, bottom = 1.dp, end = 3.dp)
-                        .constrainAs(name) {
+                        .constrainAs(title) {
                             top.linkTo(spacerTop.bottom)
                             start.linkTo(spacerStart.end)
                             end.linkTo(spacerEnd.start)
@@ -187,7 +189,7 @@ fun ProductItem(
                         .background(Color.DarkGray, RoundedCornerShape(4.dp))
                         .border(1.dp, Color.LightGray, RoundedCornerShape(4.dp))
                         .padding(top = 1.dp, start = 3.dp, bottom = 1.dp, end = 3.dp)
-                        .constrainAs(status) {
+                        .constrainAs(price) {
                             bottom.linkTo(spacerBottom.top)
                             start.linkTo(spacerStart.end)
                         }.testTag(PRODUCT_STATUS),
@@ -202,7 +204,7 @@ fun ProductItem(
                         .background(Color.DarkGray, RoundedCornerShape(4.dp))
                         .border(1.dp, Color.LightGray, RoundedCornerShape(4.dp))
                         .padding(top = 1.dp, start = 3.dp, bottom = 1.dp, end = 3.dp)
-                        .constrainAs(species) {
+                        .constrainAs(category) {
                             end.linkTo(spacerEnd.start)
                             bottom.linkTo(spacerBottom.top)
                         },
@@ -225,7 +227,9 @@ private fun Preview_ProductItem_Normal() {
                     imageUrl = "https://via.placeholder.com/300",
                     isFavorite = false,
                 ),
-            onFavoriteIconClicked = {},
+            onFavoriteIconClicked = { _ -> },
+            favoriteIconMode = FavoriteIconMode.Toggle,
+            onItemClick = {},
         )
     }
 }
@@ -244,7 +248,9 @@ private fun Preview_ProductItem_Favorite() {
                     imageUrl = "https://via.placeholder.com/300",
                     isFavorite = true,
                 ),
-            onFavoriteIconClicked = {},
+            onFavoriteIconClicked = { _ -> },
+            favoriteIconMode = FavoriteIconMode.Toggle,
+            onItemClick = {},
         )
     }
 }
