@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
@@ -18,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.compose.NavHost
@@ -71,8 +73,13 @@ private fun FakeStoreApp() {
                                 restoreState = true
                             }
                         },
-                        icon = { Icon(destination.icon, contentDescription = destination.label) },
-                        label = { Text(destination.label) },
+                        icon = {
+                            Icon(
+                                imageVector = destination.icon,
+                                contentDescription = stringResource(id = destination.labelRes),
+                            )
+                        },
+                        label = { Text(text = stringResource(destination.labelRes)) },
                     )
                 }
             }
@@ -97,13 +104,13 @@ private fun FakeStoreApp() {
 }
 
 private enum class AppDestinations(
-    val label: String,
+    @StringRes val labelRes: Int,
     val icon: ImageVector,
     val route: String,
 ) {
-    PRODUCTS("Products", Icons.Default.Home, "products"),
-    FAVORITES("Favorites", Icons.Default.Favorite, "favorites"),
-    PROFILE("Profile", Icons.Default.AccountBox, "profile"),
+    PRODUCTS(R.string.nav_products, Icons.Default.Home, "products"),
+    FAVORITES(R.string.nav_favorites, Icons.Default.Favorite, "favorites"),
+    PROFILE(R.string.nav_profile, Icons.Default.AccountBox, "profile"),
 }
 
 @Preview(showBackground = true)

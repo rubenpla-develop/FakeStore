@@ -11,11 +11,13 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.rpla.fakestore.core.ui.view.FavoriteIconMode
 import com.rpla.fakestore.core.ui.view.LoadingItem
 import com.rpla.fakestore.core.ui.view.ProductGrid
+import com.rpla.fakestore.feature.favorites.R
 import com.rpla.fakestore.feature.favorites.ui.viewmodel.FavoritesListIntent
 import com.rpla.fakestore.feature.favorites.ui.viewmodel.FavoritesListState
 import com.rpla.fakestore.feature.favorites.ui.viewmodel.FavoritesListViewModel
@@ -80,7 +82,7 @@ fun FavoritesList(
                             .padding(paddingValues),
                     contentAlignment = Alignment.Center,
                 ) {
-                    Text("No favorites yet", style = MaterialTheme.typography.bodyMedium)
+                    Text(stringResource(R.string.favorites_empty), style = MaterialTheme.typography.bodyMedium)
                 }
                 return
             }

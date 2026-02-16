@@ -24,12 +24,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.rpla.fakestore.core.ui.view.LoadingItem
 import com.rpla.fakestore.core.ui.view.testtags.TestTags.PROFILE_DETAILS
 import com.rpla.fakestore.core.ui.view.testtags.TestTags.PROFILE_EMAIL
 import com.rpla.fakestore.core.ui.view.testtags.TestTags.PROFILE_FAVORITES_COUNT
+import com.rpla.fakestore.feature.profile.R
 import com.rpla.fakestore.feature.profile.ui.viewmodel.ProfileState
 
 @Composable
@@ -138,12 +140,12 @@ private fun FavoritesCountCard(count: Int) {
                 )
                 Column {
                     Text(
-                        text = "Favorites",
+                        text = stringResource(R.string.profile_favorites_title),
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.SemiBold,
                     )
                     Text(
-                        text = "Items saved",
+                        text = stringResource(R.string.profile_items_saved),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
@@ -180,7 +182,7 @@ private fun ContactCard(email: String) {
             )
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = "Email",
+                    text = stringResource(R.string.profile_email_label),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.SemiBold,
                 )
@@ -212,7 +214,7 @@ private fun DetailsCard(
             verticalArrangement = Arrangement.spacedBy(6.dp),
         ) {
             Text(
-                text = "Details",
+                text = stringResource(R.string.profile_details_label),
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.SemiBold,
             )
@@ -258,7 +260,7 @@ private fun ProfileError(
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         Text(
-            text = "Something went wrong",
+            text = stringResource(R.string.error_generic),
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.SemiBold,
         )
@@ -268,7 +270,7 @@ private fun ProfileError(
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
         Button(onClick = onRetry) {
-            Text("Retry")
+            Text(stringResource(R.string.action_retry))
         }
     }
 }

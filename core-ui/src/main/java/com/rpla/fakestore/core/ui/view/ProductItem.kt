@@ -33,6 +33,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -41,6 +42,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import coil.compose.SubcomposeAsyncImage
 import coil.request.ImageRequest
+import com.rpla.fakestore.core.ui.R
 import com.rpla.fakestore.core.ui.model.UiListItem
 import com.rpla.fakestore.core.ui.theme.FakeStoreTheme
 import com.rpla.fakestore.core.ui.view.testtags.TestTags.PRODUCT_FAVORITE_ICON
@@ -81,7 +83,7 @@ fun ProductItem(
                         .data(product.imageUrl)
                         .crossfade(true)
                         .build(),
-                contentDescription = "Avatar",
+                contentDescription = stringResource(R.string.content_description_avatar),
                 contentScale = ContentScale.Crop,
                 modifier =
                     Modifier
@@ -148,7 +150,7 @@ fun ProductItem(
                 IconButton(onClick = { onFavoriteIconClicked(product.id) }) {
                     Icon(
                         imageVector = if (isFilled) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
-                        contentDescription = "Favorite",
+                        contentDescription = stringResource(R.string.content_description_favorite),
                         tint = Color.White,
                     )
                 }
