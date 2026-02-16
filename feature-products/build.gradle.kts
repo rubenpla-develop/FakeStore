@@ -48,7 +48,6 @@ dependencies {
     kapt(libs.hilt.compiler)
 
     implementation(libs.kotlinx.coroutines.android)
-    implementation(libs.coil.compose)
 
     testImplementation(libs.junit5.api)
     testRuntimeOnly(libs.junit5.engine)
@@ -56,6 +55,5 @@ dependencies {
 
     testImplementation(libs.mockk)
     testImplementation(libs.kotest.assertions.core)
-
     testImplementation(libs.kotlinx.coroutines.test)
 }
