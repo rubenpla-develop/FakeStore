@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FakeStore</string>
+
+    <string name="nav_products">Products</string>
+    <string name="nav_favorites">Favorites</string>
+    <string name="nav_profile">Profile</string>
 </resources>

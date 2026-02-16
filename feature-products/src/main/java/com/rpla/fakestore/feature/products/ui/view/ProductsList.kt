@@ -12,6 +12,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -21,6 +22,7 @@ import com.rpla.fakestore.core.ui.theme.FakeStoreTheme
 import com.rpla.fakestore.core.ui.view.FavoriteIconMode
 import com.rpla.fakestore.core.ui.view.LoadingItem
 import com.rpla.fakestore.core.ui.view.ProductGrid
+import com.rpla.fakestore.feature.products.R
 import com.rpla.fakestore.feature.products.ui.viewmodel.ProductListIntent
 import com.rpla.fakestore.feature.products.ui.viewmodel.ProductListState
 import com.rpla.fakestore.feature.products.ui.viewmodel.ProductsListViewModel
@@ -80,7 +82,7 @@ fun ProductList(
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Text(text = uiState.message, style = MaterialTheme.typography.bodyMedium)
-                    Button(onClick = onRetry) { Text("Retry") }
+                    Button(onClick = onRetry) { Text(stringResource(R.string.action_retry)) }
                 }
             }
         }

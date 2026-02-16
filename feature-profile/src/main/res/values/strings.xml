@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="profile_favorites_title">Favorites</string>
+    <string name="profile_items_saved">Items saved</string>
+
+    <string name="profile_email_label">Email</string>
+    <string name="profile_details_label">Details</string>
+
+    <string name="error_generic">Something went wrong</string>
+    <string name="action_retry">Retry</string>
+</resources>
