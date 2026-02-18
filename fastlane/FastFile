@@ -1,0 +1,16 @@
+default_platform(:android)
+
+platform :android do
+  desc "Build Debug APK and upload to Firebase App Distribution"
+  lane :beta do
+    gradle(task: "testDebugUnitTest")
+    gradle(task: "assembleDebug")
+
+    firebase_app_distribution(
+      app: ENV["1:762461511547:android:ac4ba135f27e50f6cfa7de"],
+      apk_path: "app/build/outputs/apk/debug/app-debug.apk",
+      release_notes: (ENV["RELEASE_NOTES"] || "CI build"),
+      groups: ENV["wq"]
+    )
+  end
+end
