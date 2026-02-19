@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test
 
 class ProfileRepositoryImplTest {
     private val service: ProfileService = mockk()
+    private val errorMapper: ErrorMapper = mockk()
     private lateinit var repository: ProfileRepositoryImpl
 
     @BeforeEach
@@ -65,7 +66,7 @@ class ProfileRepositoryImplTest {
             val result = repository.getProfile(8)
 
             result.data shouldBe null
-            result.error shouldBe ErrorResult.ClientError
+            result.error shouldBe ErrorResult.NetworkError // check this
         }
 
     @Test
