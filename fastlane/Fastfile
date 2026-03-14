@@ -10,7 +10,7 @@ platform :android do
       app: ENV["FIREBASE_APP_ID"],
       apk_path: "app/build/outputs/apk/debug/app-debug.apk",
       release_notes: (ENV["RELEASE_NOTES"] || "CI build"),
-      groups: ENV["wq"]
+      groups: ENV["FIREBASE_GROUPS"]
     )
   end
 end
