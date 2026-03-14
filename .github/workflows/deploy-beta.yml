@@ -34,9 +34,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.2"
-
-      - name: Install Fastlane
-        run: gem install fastlane --no-document --force
+          bundler-cache: true
 
       - name: Create Firebase credentials file
         run: |
@@ -48,7 +46,7 @@ jobs:
           FIREBASE_GROUPS: ${{ secrets.FIREBASE_GROUPS }}
           GOOGLE_APPLICATION_CREDENTIALS: /tmp/firebase-service-account.json
           RELEASE_NOTES: "Build #${{ github.run_number }} - ${{ github.sha }}"
-        run: fastlane android beta
+        run: bundle exec fastlane android beta
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
