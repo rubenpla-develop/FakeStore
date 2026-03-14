@@ -7,7 +7,7 @@ platform :android do
     gradle(task: "assembleDebug")
 
     firebase_app_distribution(
-      app: ENV["1:762461511547:android:ac4ba135f27e50f6cfa7de"],
+      app: ENV["FIREBASE_APP_ID"],
       apk_path: "app/build/outputs/apk/debug/app-debug.apk",
       release_notes: (ENV["RELEASE_NOTES"] || "CI build"),
       groups: ENV["wq"]
