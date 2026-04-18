@@ -13,6 +13,7 @@ import io.mockk.coVerify
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -165,5 +166,80 @@ class ProfileViewModelTest {
             advanceUntilIdle()
 
             viewModel.state.value.shouldBeInstanceOf<ProfileState.Error>()
+        }
+
+    @Test
+    fun `when Retry is dispatched after successful load then api is not called again`() =
+        runTest(mainDispatcher) {
+            // Given
+            val profile =
+                Profile(
+                    id = 8,
+                    fullName = "John Doe",
+                    username = "user8",
+                    email = "user8@mail.com",
+                )
+            coEvery { getProfileUseCase(any<GetProfileRequest>()) } returns ResultBundle(profile, null)
+
+            // When
+            viewModel.dispatchIntent(ProfileIntent.LoadProfile)
+            advanceUntilIdle()
+            viewModel.dispatchIntent(ProfileIntent.Retry)
+            advanceUntilIdle()
+
+            // Then
+            coVerify(exactly = 1) { getProfileUseCase(match { it.id == 8 }) }
+        }
+
+    @Test
+    fun `when first load fails then Retry triggers a new call and emits Data`() =
+        runTest(mainDispatcher) {
+            // Given
+            val profile =
+                Profile(
+                    id = 8,
+                    fullName = "John Doe",
+                    username = "user8",
+                    email = "user8@mail.com",
+                )
+
+            coEvery { getProfileUseCase(any<GetProfileRequest>()) } returnsMany
+                listOf(
+                    ResultBundle(data = null, error = ErrorResult.NetworkError),
+                    ResultBundle(data = profile, error = null),
+                )
+
+            // When
+            viewModel.dispatchIntent(ProfileIntent.LoadProfile)
+            advanceUntilIdle()
+            viewModel.dispatchIntent(ProfileIntent.Retry)
+            advanceUntilIdle()
+
+            // Then
+            viewModel.state.value.shouldBeInstanceOf<ProfileState.Data>()
+            coVerify(exactly = 2) { getProfileUseCase(match { it.id == 8 }) }
+        }
+
+    @Test
+    fun `when LoadProfile and Retry are dispatched then favorites count observer starts once`() =
+        runTest(mainDispatcher) {
+            // Given
+            val profile =
+                Profile(
+                    id = 8,
+                    fullName = "John Doe",
+                    username = "user8",
+                    email = "user8@mail.com",
+                )
+            coEvery { getProfileUseCase(any<GetProfileRequest>()) } returns ResultBundle(profile, null)
+
+            // When
+            viewModel.dispatchIntent(ProfileIntent.LoadProfile)
+            advanceUntilIdle()
+            viewModel.dispatchIntent(ProfileIntent.Retry)
+            advanceUntilIdle()
+
+            // Then
+            verify(exactly = 1) { observeFavoritesCountUseCase.invoke() }
         }
 }
