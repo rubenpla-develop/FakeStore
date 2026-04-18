@@ -10,6 +10,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -148,6 +149,52 @@ class FavoritesListViewModelTest {
             val error = states[2]
             error.shouldBeInstanceOf<FavoritesListState.ErrorState>()
             error.message shouldBe "boom"
+
+            collectJob.cancel()
+        }
+
+    @Test
+    fun `when FavoritesList intent is dispatched multiple times then observer is started once`() =
+        runTest(mainDispatcher) {
+            // Given
+            every { observeFavoritesUseCase.invoke() } returns MutableSharedFlow(replay = 1)
+
+            // When
+            viewModel.dispatchIntent(FavoritesListIntent.FavoritesList)
+            advanceUntilIdle()
+            viewModel.dispatchIntent(FavoritesListIntent.FavoritesList)
+            advanceUntilIdle()
+
+            // Then
+            verify(exactly = 1) { observeFavoritesUseCase.invoke() }
+        }
+
+    @Test
+    fun `when observeFavorites throws without message then emits unknown error fallback`() =
+        runTest(mainDispatcher) {
+            // Given
+            every {
+                observeFavoritesUseCase.invoke()
+            } returns
+                flow {
+                    throw RuntimeException()
+                }
+
+            val states = mutableListOf<FavoritesListState>()
+            val collectJob =
+                launch(UnconfinedTestDispatcher(testScheduler)) {
+                    viewModel.state.take(3).toList(states)
+                }
+
+            runCurrent()
+
+            // When
+            viewModel.dispatchIntent(FavoritesListIntent.FavoritesList)
+            advanceUntilIdle()
+
+            // Then
+            val error = states[2].shouldBeInstanceOf<FavoritesListState.ErrorState>()
+            error.message shouldBe "Unknown error"
 
             collectJob.cancel()
         }
