@@ -243,4 +243,37 @@ class ProductsListViewModelTest {
             // Then: reverted
             (viewModel.state.value as ProductListState.ProductsListData).items[0].isFavorite shouldBe false
         }
+
+    @Test
+    fun `when ProductList intent is dispatched multiple times then favorites observer is started once`() =
+        runTest(mainDispatcher) {
+            // Given
+            every { observeFavoriteIdsUseCase.invoke() } returns flowOf(emptySet())
+            coEvery { getProductsListUseCase(any<GetProductListRequest>()) } returns
+                ResultBundle(
+                    data = listOf(product1(isFavorite = false)),
+                    error = null,
+                )
+
+            // When
+            viewModel.dispatchIntent(ProductListIntent.ProductList)
+            advanceUntilIdle()
+            viewModel.dispatchIntent(ProductListIntent.ProductList)
+            advanceUntilIdle()
+
+            // Then
+            coVerify(exactly = 2) { getProductsListUseCase(any<GetProductListRequest>()) }
+            coVerify(exactly = 1) { observeFavoriteIdsUseCase.invoke() }
+        }
+
+    @Test
+    fun `when ToggleFavorite is dispatched before products are loaded then toggle usecase is not called`() =
+        runTest(mainDispatcher) {
+            // When
+            viewModel.dispatchIntent(ProductListIntent.ToggleFavorite(1))
+            advanceUntilIdle()
+
+            // Then
+            coVerify(exactly = 0) { toggleFavoriteUseCase(any()) }
+        }
 }
