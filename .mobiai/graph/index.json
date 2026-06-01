@@ -1,0 +1,3083 @@
+{
+  "version": 1,
+  "generatedAt": "2026-05-26T20:32:04.865637331Z",
+  "root": "/home/ruben/StudioProjects/FakeStore",
+  "files": [
+    {
+      "path": "app/src/main/java/com/rpla/fakestore/App.kt",
+      "language": "kotlin",
+      "lines": 7,
+      "imports": [
+        "android.app.Application",
+        "dagger.hilt.android.HiltAndroidApp"
+      ],
+      "symbols": [
+        {
+          "name": "App",
+          "kind": "class",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "app/src/main/java/com/rpla/fakestore/MainActivity.kt",
+      "language": "kotlin",
+      "lines": 122,
+      "imports": [
+        "android.os.Bundle",
+        "androidx.activity.ComponentActivity",
+        "androidx.activity.compose.setContent",
+        "androidx.activity.enableEdgeToEdge",
+        "androidx.annotation.StringRes",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.filled.AccountBox",
+        "androidx.compose.material.icons.filled.Favorite",
+        "androidx.compose.material.icons.filled.Home",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.NavigationBar",
+        "androidx.compose.material3.NavigationBarItem",
+        "androidx.compose.material3.Scaffold",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.graphics.vector.ImageVector",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.tooling.preview.Preview",
+        "androidx.navigation.NavDestination.Companion.hierarchy",
+        "androidx.navigation.compose.NavHost",
+        "androidx.navigation.compose.composable",
+        "androidx.navigation.compose.currentBackStackEntryAsState",
+        "androidx.navigation.compose.rememberNavController",
+        "com.rpla.fakestore.core.ui.theme.FakeStoreTheme",
+        "com.rpla.fakestore.feature.favorites.ui.view.FavoritesRoute",
+        "com.rpla.fakestore.feature.products.ui.view.ProductsRoute",
+        "com.rpla.fakestore.feature.profile.ui.view.ProfileRoute",
+        "dagger.hilt.android.AndroidEntryPoint"
+      ],
+      "symbols": [
+        {
+          "name": "MainActivity",
+          "kind": "class",
+          "line": 36
+        },
+        {
+          "name": "onCreate",
+          "kind": "fun",
+          "line": 37,
+          "container": "MainActivity",
+          "modifiers": [
+            "override"
+          ]
+        },
+        {
+          "name": "FakeStoreApp",
+          "kind": "fun",
+          "line": 50,
+          "modifiers": [
+            "private"
+          ]
+        },
+        {
+          "name": "AppDestinations",
+          "kind": "class",
+          "line": 106,
+          "modifiers": [
+            "private",
+            "enum"
+          ]
+        },
+        {
+          "name": "Preview_FakeStoreApp",
+          "kind": "fun",
+          "line": 118,
+          "modifiers": [
+            "private"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-coroutines/src/main/java/com/rpla/fakestore/core/coroutines/dispatcher/DispatcherQualifiers.kt",
+      "language": "kotlin",
+      "lines": 13,
+      "imports": [
+        "javax.inject.Qualifier"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "core-data/src/main/java/com/rpla/fakestore/core/data/favorites/common/ResultBundleAdapter.kt",
+      "language": "kotlin",
+      "lines": 20,
+      "imports": [
+        "com.rpla.fakestore.core.domain.entity.ErrorResult",
+        "com.rpla.fakestore.core.domain.entity.ResultBundle"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "core-data/src/main/java/com/rpla/fakestore/core/data/favorites/mapper/FavoriteProductMapper.kt",
+      "language": "kotlin",
+      "lines": 24,
+      "imports": [
+        "com.rpla.fakestore.core.database.entity.FavoriteProductEntity",
+        "com.rpla.fakestore.core.model.Product"
+      ],
+      "symbols": [
+        {
+          "name": "toDomain",
+          "kind": "fun",
+          "line": 6,
+          "modifiers": [
+            "internal"
+          ]
+        },
+        {
+          "name": "toEntity",
+          "kind": "fun",
+          "line": 16,
+          "modifiers": [
+            "internal"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-data/src/main/java/com/rpla/fakestore/core/data/favorites/repository/FavoritesRepositoryImpl.kt",
+      "language": "kotlin",
+      "lines": 48,
+      "imports": [
+        "com.rpla.fakestore.core.data.favorites.common.toResultBundle",
+        "com.rpla.fakestore.core.data.favorites.mapper.toDomain",
+        "com.rpla.fakestore.core.data.favorites.mapper.toEntity",
+        "com.rpla.fakestore.core.database.dao.FavoriteProductDao",
+        "com.rpla.fakestore.core.domain.entity.ErrorResult",
+        "com.rpla.fakestore.core.domain.entity.ResultBundle",
+        "com.rpla.fakestore.core.domain.repository.FavoritesRepository",
+        "com.rpla.fakestore.core.model.Product",
+        "kotlinx.coroutines.flow.Flow",
+        "kotlinx.coroutines.flow.map",
+        "javax.inject.Inject"
+      ],
+      "symbols": [
+        {
+          "name": "FavoritesRepositoryImpl",
+          "kind": "class",
+          "line": 15
+        },
+        {
+          "name": "observeFavorites",
+          "kind": "fun",
+          "line": 20,
+          "modifiers": [
+            "override"
+          ]
+        },
+        {
+          "name": "observeFavoriteIds",
+          "kind": "fun",
+          "line": 27,
+          "modifiers": [
+            "override"
+          ]
+        },
+        {
+          "name": "addFavorite",
+          "kind": "fun",
+          "line": 32,
+          "modifiers": [
+            "override",
+            "suspend"
+          ]
+        },
+        {
+          "name": "removeFavorite",
+          "kind": "fun",
+          "line": 37,
+          "modifiers": [
+            "override",
+            "suspend"
+          ]
+        },
+        {
+          "name": "toggleFavorite",
+          "kind": "fun",
+          "line": 43,
+          "modifiers": [
+            "override",
+            "suspend"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-data/src/test/java/com/rpla/fakestore/core/data/favorites/repository/FavoritesRepositoryImplTest.kt",
+      "language": "kotlin",
+      "lines": 185,
+      "imports": [
+        "com.rpla.fakestore.core.database.dao.FavoriteProductDao",
+        "com.rpla.fakestore.core.database.entity.FavoriteProductEntity",
+        "com.rpla.fakestore.core.domain.entity.ErrorResult",
+        "com.rpla.fakestore.core.model.Product",
+        "io.kotest.matchers.collections.shouldContainExactlyInAnyOrder",
+        "io.kotest.matchers.shouldBe",
+        "kotlinx.coroutines.Dispatchers",
+        "kotlinx.coroutines.ExperimentalCoroutinesApi",
+        "kotlinx.coroutines.flow.Flow",
+        "kotlinx.coroutines.flow.MutableStateFlow",
+        "kotlinx.coroutines.flow.first",
+        "kotlinx.coroutines.test.StandardTestDispatcher",
+        "kotlinx.coroutines.test.resetMain",
+        "kotlinx.coroutines.test.runTest",
+        "kotlinx.coroutines.test.setMain",
+        "org.junit.jupiter.api.AfterEach",
+        "org.junit.jupiter.api.BeforeEach",
+        "org.junit.jupiter.api.Test"
+      ],
+      "symbols": [
+        {
+          "name": "FavoritesRepositoryImplTest",
+          "kind": "class",
+          "line": 23
+        },
+        {
+          "name": "setUp",
+          "kind": "fun",
+          "line": 30,
+          "container": "FavoritesRepositoryImplTest"
+        },
+        {
+          "name": "tearDown",
+          "kind": "fun",
+          "line": 37,
+          "container": "FavoritesRepositoryImplTest"
+        },
+        {
+          "name": "FakeFavoriteProductDao",
+          "kind": "class",
+          "line": 136,
+          "container": "FavoritesRepositoryImplTest",
+          "modifiers": [
+            "private"
+          ]
+        },
+        {
+          "name": "observeFavorites",
+          "kind": "fun",
+          "line": 149,
+          "container": "FakeFavoriteProductDao",
+          "modifiers": [
+            "override"
+          ]
+        },
+        {
+          "name": "observeFavoriteIds",
+          "kind": "fun",
+          "line": 151,
+          "container": "FakeFavoriteProductDao",
+          "modifiers": [
+            "override"
+          ]
+        },
+        {
+          "name": "upsertFavorite",
+          "kind": "fun",
+          "line": 153,
+          "container": "FakeFavoriteProductDao",
+          "modifiers": [
+            "override",
+            "suspend"
+          ]
+        },
+        {
+          "name": "deleteFavoriteById",
+          "kind": "fun",
+          "line": 166,
+          "container": "FakeFavoriteProductDao",
+          "modifiers": [
+            "override",
+            "suspend"
+          ]
+        },
+        {
+          "name": "exists",
+          "kind": "fun",
+          "line": 175,
+          "container": "FakeFavoriteProductDao",
+          "modifiers": [
+            "override",
+            "suspend"
+          ]
+        },
+        {
+          "name": "toggleFavorite",
+          "kind": "fun",
+          "line": 177,
+          "container": "FakeFavoriteProductDao",
+          "modifiers": [
+            "override",
+            "suspend"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-database/src/main/java/com/rpla/fakestore/core/database/FakeStoreDatabase.kt",
+      "language": "kotlin",
+      "lines": 15,
+      "imports": [
+        "androidx.room.Database",
+        "androidx.room.RoomDatabase",
+        "com.rpla.fakestore.core.database.dao.FavoriteProductDao",
+        "com.rpla.fakestore.core.database.entity.FavoriteProductEntity"
+      ],
+      "symbols": [
+        {
+          "name": "FakeStoreDatabase",
+          "kind": "class",
+          "line": 13,
+          "modifiers": [
+            "abstract"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-database/src/main/java/com/rpla/fakestore/core/database/dao/FavoriteProductDao.kt",
+      "language": "kotlin",
+      "lines": 36,
+      "imports": [
+        "androidx.room.Dao",
+        "androidx.room.Insert",
+        "androidx.room.OnConflictStrategy",
+        "androidx.room.Query",
+        "androidx.room.Transaction",
+        "com.rpla.fakestore.core.database.entity.FavoriteProductEntity",
+        "kotlinx.coroutines.flow.Flow"
+      ],
+      "symbols": [
+        {
+          "name": "FavoriteProductDao",
+          "kind": "interface",
+          "line": 12
+        },
+        {
+          "name": "observeFavorites",
+          "kind": "fun",
+          "line": 14,
+          "container": "FavoriteProductDao"
+        },
+        {
+          "name": "observeFavoriteIds",
+          "kind": "fun",
+          "line": 17,
+          "container": "FavoriteProductDao"
+        },
+        {
+          "name": "upsertFavorite",
+          "kind": "fun",
+          "line": 20,
+          "container": "FavoriteProductDao",
+          "modifiers": [
+            "suspend"
+          ]
+        },
+        {
+          "name": "deleteFavoriteById",
+          "kind": "fun",
+          "line": 23,
+          "container": "FavoriteProductDao",
+          "modifiers": [
+            "suspend"
+          ]
+        },
+        {
+          "name": "exists",
+          "kind": "fun",
+          "line": 26,
+          "container": "FavoriteProductDao",
+          "modifiers": [
+            "suspend"
+          ]
+        },
+        {
+          "name": "toggleFavorite",
+          "kind": "fun",
+          "line": 29,
+          "container": "FavoriteProductDao",
+          "modifiers": [
+            "suspend"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-database/src/main/java/com/rpla/fakestore/core/database/entity/FavoriteProductEntity.kt",
+      "language": "kotlin",
+      "lines": 14,
+      "imports": [
+        "androidx.room.Entity",
+        "androidx.room.PrimaryKey"
+      ],
+      "symbols": [
+        {
+          "name": "FavoriteProductEntity",
+          "kind": "class",
+          "line": 7,
+          "modifiers": [
+            "data"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-di/src/main/java/com/rpla/fakestore/core/di/AppModule.kt",
+      "language": "kotlin",
+      "lines": 18,
+      "imports": [
+        "com.rpla.fakestore.core.coroutines.dispatcher.IODispatcher",
+        "dagger.Module",
+        "dagger.Provides",
+        "dagger.hilt.InstallIn",
+        "dagger.hilt.components.SingletonComponent",
+        "kotlinx.coroutines.Dispatchers",
+        "javax.inject.Singleton"
+      ],
+      "symbols": [
+        {
+          "name": "AppModule",
+          "kind": "class",
+          "line": 13
+        },
+        {
+          "name": "providesDispatcher",
+          "kind": "fun",
+          "line": 17,
+          "container": "AppModule"
+        }
+      ]
+    },
+    {
+      "path": "core-di/src/main/java/com/rpla/fakestore/core/di/DataModule.kt",
+      "language": "kotlin",
+      "lines": 17,
+      "imports": [
+        "com.rpla.fakestore.core.data.favorites.repository.FavoritesRepositoryImpl",
+        "com.rpla.fakestore.core.domain.repository.FavoritesRepository",
+        "dagger.Binds",
+        "dagger.Module",
+        "dagger.hilt.InstallIn",
+        "dagger.hilt.components.SingletonComponent",
+        "javax.inject.Singleton"
+      ],
+      "symbols": [
+        {
+          "name": "DataModule",
+          "kind": "class",
+          "line": 13,
+          "modifiers": [
+            "abstract"
+          ]
+        },
+        {
+          "name": "bindFavoritesRepository",
+          "kind": "fun",
+          "line": 16,
+          "container": "DataModule",
+          "modifiers": [
+            "abstract"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-di/src/main/java/com/rpla/fakestore/core/di/DatabaseModule.kt",
+      "language": "kotlin",
+      "lines": 34,
+      "imports": [
+        "android.content.Context",
+        "androidx.room.Room",
+        "com.rpla.fakestore.core.database.FakeStoreDatabase",
+        "com.rpla.fakestore.core.database.dao.FavoriteProductDao",
+        "dagger.Module",
+        "dagger.Provides",
+        "dagger.hilt.InstallIn",
+        "dagger.hilt.android.qualifiers.ApplicationContext",
+        "dagger.hilt.components.SingletonComponent",
+        "javax.inject.Singleton"
+      ],
+      "symbols": [
+        {
+          "name": "DatabaseModule",
+          "kind": "object",
+          "line": 16
+        },
+        {
+          "name": "providerFakeStoreDatabase",
+          "kind": "fun",
+          "line": 21,
+          "container": "DatabaseModule"
+        },
+        {
+          "name": "provideFavoriteProductDao",
+          "kind": "fun",
+          "line": 33,
+          "container": "DatabaseModule"
+        }
+      ]
+    },
+    {
+      "path": "core-di/src/main/java/com/rpla/fakestore/core/di/NetworkModule.kt",
+      "language": "kotlin",
+      "lines": 81,
+      "imports": [
+        "android.content.Context",
+        "com.rpla.fakestore.core.network.retrofit.RetrofitInterceptor",
+        "com.squareup.moshi.Moshi",
+        "com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory",
+        "dagger.Module",
+        "dagger.Provides",
+        "dagger.hilt.InstallIn",
+        "dagger.hilt.android.qualifiers.ApplicationContext",
+        "dagger.hilt.components.SingletonComponent",
+        "okhttp3.Cache",
+        "okhttp3.OkHttpClient",
+        "okhttp3.logging.HttpLoggingInterceptor",
+        "retrofit2.Retrofit",
+        "retrofit2.converter.moshi.MoshiConverterFactory",
+        "java.io.File",
+        "java.util.concurrent.TimeUnit",
+        "javax.inject.Singleton"
+      ],
+      "symbols": [
+        {
+          "name": "NetworkModule",
+          "kind": "object",
+          "line": 23
+        },
+        {
+          "name": "providesCache",
+          "kind": "fun",
+          "line": 29,
+          "container": "NetworkModule"
+        },
+        {
+          "name": "providesRetrofitInterceptor",
+          "kind": "fun",
+          "line": 39,
+          "container": "NetworkModule"
+        },
+        {
+          "name": "providesOkHttpClient",
+          "kind": "fun",
+          "line": 43,
+          "container": "NetworkModule"
+        },
+        {
+          "name": "provideMoshi",
+          "kind": "fun",
+          "line": 63,
+          "container": "NetworkModule"
+        },
+        {
+          "name": "provideRetrofit",
+          "kind": "fun",
+          "line": 71,
+          "container": "NetworkModule"
+        }
+      ]
+    },
+    {
+      "path": "core-domain/src/main/java/com/rpla/fakestore/core/domain/base/BaseUseCase.kt",
+      "language": "kotlin",
+      "lines": 9,
+      "imports": [
+        "com.rpla.fakestore.core.domain.entity.ResultBundle"
+      ],
+      "symbols": [
+        {
+          "name": "BaseUseCase",
+          "kind": "class",
+          "line": 5,
+          "modifiers": [
+            "abstract"
+          ]
+        },
+        {
+          "name": "invoke",
+          "kind": "fun",
+          "line": 6,
+          "container": "BaseUseCase",
+          "modifiers": [
+            "suspend",
+            "operator"
+          ]
+        },
+        {
+          "name": "run",
+          "kind": "fun",
+          "line": 8,
+          "container": "BaseUseCase",
+          "modifiers": [
+            "protected",
+            "abstract",
+            "suspend"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-domain/src/main/java/com/rpla/fakestore/core/domain/entity/ErrorResult.kt",
+      "language": "kotlin",
+      "lines": 11,
+      "imports": [],
+      "symbols": [
+        {
+          "name": "ErrorResult",
+          "kind": "class",
+          "line": 3,
+          "modifiers": [
+            "sealed"
+          ]
+        },
+        {
+          "name": "ClientError",
+          "kind": "object",
+          "line": 4,
+          "container": "ErrorResult",
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "ServerError",
+          "kind": "object",
+          "line": 6,
+          "container": "ErrorResult",
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "NetworkError",
+          "kind": "object",
+          "line": 8,
+          "container": "ErrorResult",
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "GenericError",
+          "kind": "object",
+          "line": 10,
+          "container": "ErrorResult",
+          "modifiers": [
+            "data"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-domain/src/main/java/com/rpla/fakestore/core/domain/entity/ResultBundle.kt",
+      "language": "kotlin",
+      "lines": 6,
+      "imports": [],
+      "symbols": [
+        {
+          "name": "ResultBundle",
+          "kind": "class",
+          "line": 3,
+          "modifiers": [
+            "data"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-domain/src/main/java/com/rpla/fakestore/core/domain/repository/FavoritesRepository.kt",
+      "language": "kotlin",
+      "lines": 19,
+      "imports": [
+        "com.rpla.fakestore.core.domain.entity.ResultBundle",
+        "com.rpla.fakestore.core.model.Product",
+        "kotlinx.coroutines.flow.Flow"
+      ],
+      "symbols": [
+        {
+          "name": "FavoritesRepository",
+          "kind": "interface",
+          "line": 7
+        },
+        {
+          "name": "observeFavorites",
+          "kind": "fun",
+          "line": 9,
+          "container": "FavoritesRepository"
+        },
+        {
+          "name": "observeFavoriteIds",
+          "kind": "fun",
+          "line": 12,
+          "container": "FavoritesRepository"
+        },
+        {
+          "name": "addFavorite",
+          "kind": "fun",
+          "line": 14,
+          "container": "FavoritesRepository",
+          "modifiers": [
+            "suspend"
+          ]
+        },
+        {
+          "name": "removeFavorite",
+          "kind": "fun",
+          "line": 16,
+          "container": "FavoritesRepository",
+          "modifiers": [
+            "suspend"
+          ]
+        },
+        {
+          "name": "toggleFavorite",
+          "kind": "fun",
+          "line": 18,
+          "container": "FavoritesRepository",
+          "modifiers": [
+            "suspend"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-domain/src/main/java/com/rpla/fakestore/core/domain/usecase/favorites/AddFavoritesUseCase.kt",
+      "language": "kotlin",
+      "lines": 15,
+      "imports": [
+        "com.rpla.fakestore.core.domain.base.BaseUseCase",
+        "com.rpla.fakestore.core.domain.entity.ResultBundle",
+        "com.rpla.fakestore.core.domain.repository.FavoritesRepository",
+        "com.rpla.fakestore.core.model.Product",
+        "javax.inject.Inject"
+      ],
+      "symbols": [
+        {
+          "name": "AddFavoritesUseCase",
+          "kind": "class",
+          "line": 9
+        },
+        {
+          "name": "run",
+          "kind": "fun",
+          "line": 14,
+          "modifiers": [
+            "override",
+            "suspend"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-domain/src/main/java/com/rpla/fakestore/core/domain/usecase/favorites/ObserveFavoriteIdsUseCase.kt",
+      "language": "kotlin",
+      "lines": 13,
+      "imports": [
+        "com.rpla.fakestore.core.domain.repository.FavoritesRepository",
+        "kotlinx.coroutines.flow.Flow",
+        "javax.inject.Inject"
+      ],
+      "symbols": [
+        {
+          "name": "ObserveFavoriteIdsUseCase",
+          "kind": "class",
+          "line": 7
+        },
+        {
+          "name": "invoke",
+          "kind": "fun",
+          "line": 12,
+          "modifiers": [
+            "operator"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-domain/src/main/java/com/rpla/fakestore/core/domain/usecase/favorites/ObserveFavoritesCountUseCase.kt",
+      "language": "kotlin",
+      "lines": 14,
+      "imports": [
+        "com.rpla.fakestore.core.domain.repository.FavoritesRepository",
+        "kotlinx.coroutines.flow.Flow",
+        "kotlinx.coroutines.flow.map",
+        "javax.inject.Inject"
+      ],
+      "symbols": [
+        {
+          "name": "ObserveFavoritesCountUseCase",
+          "kind": "class",
+          "line": 8
+        },
+        {
+          "name": "invoke",
+          "kind": "fun",
+          "line": 13,
+          "modifiers": [
+            "operator"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-domain/src/main/java/com/rpla/fakestore/core/domain/usecase/favorites/ObserveFavoritesUseCase.kt",
+      "language": "kotlin",
+      "lines": 14,
+      "imports": [
+        "com.rpla.fakestore.core.domain.repository.FavoritesRepository",
+        "com.rpla.fakestore.core.model.Product",
+        "kotlinx.coroutines.flow.Flow",
+        "javax.inject.Inject"
+      ],
+      "symbols": [
+        {
+          "name": "ObserveFavoritesUseCase",
+          "kind": "class",
+          "line": 8
+        },
+        {
+          "name": "invoke",
+          "kind": "fun",
+          "line": 13,
+          "modifiers": [
+            "operator"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-domain/src/main/java/com/rpla/fakestore/core/domain/usecase/favorites/RemoveFavoriteUseCase.kt",
+      "language": "kotlin",
+      "lines": 14,
+      "imports": [
+        "com.rpla.fakestore.core.domain.base.BaseUseCase",
+        "com.rpla.fakestore.core.domain.entity.ResultBundle",
+        "com.rpla.fakestore.core.domain.repository.FavoritesRepository",
+        "javax.inject.Inject"
+      ],
+      "symbols": [
+        {
+          "name": "RemoveFavoriteUseCase",
+          "kind": "class",
+          "line": 8
+        },
+        {
+          "name": "run",
+          "kind": "fun",
+          "line": 13,
+          "modifiers": [
+            "override",
+            "suspend"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-domain/src/main/java/com/rpla/fakestore/core/domain/usecase/favorites/ToggleFavoriteUseCase.kt",
+      "language": "kotlin",
+      "lines": 15,
+      "imports": [
+        "com.rpla.fakestore.core.domain.base.BaseUseCase",
+        "com.rpla.fakestore.core.domain.entity.ResultBundle",
+        "com.rpla.fakestore.core.domain.repository.FavoritesRepository",
+        "com.rpla.fakestore.core.model.Product",
+        "javax.inject.Inject"
+      ],
+      "symbols": [
+        {
+          "name": "ToggleFavoriteUseCase",
+          "kind": "class",
+          "line": 9
+        },
+        {
+          "name": "run",
+          "kind": "fun",
+          "line": 14,
+          "modifiers": [
+            "override",
+            "suspend"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-model/src/main/java/com/rpla/fakestore/core/model/Product.kt",
+      "language": "kotlin",
+      "lines": 11,
+      "imports": [],
+      "symbols": [
+        {
+          "name": "Product",
+          "kind": "class",
+          "line": 3,
+          "modifiers": [
+            "data"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-network/src/main/java/com/rpla/fakestore/core/network/exception/RemoteException.kt",
+      "language": "kotlin",
+      "lines": 23,
+      "imports": [
+        "java.io.IOException"
+      ],
+      "symbols": [
+        {
+          "name": "RemoteException",
+          "kind": "class",
+          "line": 5,
+          "modifiers": [
+            "sealed"
+          ]
+        },
+        {
+          "name": "ClientError",
+          "kind": "class",
+          "line": 8
+        },
+        {
+          "name": "ServerError",
+          "kind": "class",
+          "line": 12
+        },
+        {
+          "name": "NoNetworkError",
+          "kind": "class",
+          "line": 16
+        },
+        {
+          "name": "GenericError",
+          "kind": "class",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "path": "core-network/src/main/java/com/rpla/fakestore/core/network/mapper/ErrorMapper.kt",
+      "language": "kotlin",
+      "lines": 27,
+      "imports": [
+        "com.rpla.fakestore.core.domain.entity.ErrorResult",
+        "com.rpla.fakestore.core.domain.entity.ResultBundle",
+        "com.rpla.fakestore.core.network.exception.RemoteException",
+        "javax.inject.Inject"
+      ],
+      "symbols": [
+        {
+          "name": "ErrorMapper",
+          "kind": "class",
+          "line": 8
+        },
+        {
+          "name": "mapRemoteErrorRecord",
+          "kind": "fun",
+          "line": 11
+        },
+        {
+          "name": "mapUnexpectedThrowableErrorResult",
+          "kind": "fun",
+          "line": 23
+        }
+      ]
+    },
+    {
+      "path": "core-network/src/main/java/com/rpla/fakestore/core/network/retrofit/RetrofitInterceptor.kt",
+      "language": "kotlin",
+      "lines": 16,
+      "imports": [
+        "okhttp3.Interceptor",
+        "okhttp3.Response"
+      ],
+      "symbols": [
+        {
+          "name": "RetrofitInterceptor",
+          "kind": "class",
+          "line": 6
+        },
+        {
+          "name": "intercept",
+          "kind": "fun",
+          "line": 7,
+          "container": "RetrofitInterceptor",
+          "modifiers": [
+            "override"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-network/src/main/java/com/rpla/fakestore/core/network/retrofit/SafeApiCall.kt",
+      "language": "kotlin",
+      "lines": 30,
+      "imports": [
+        "com.rpla.fakestore.core.network.exception.RemoteException",
+        "retrofit2.HttpException",
+        "java.io.IOException",
+        "java.net.ConnectException",
+        "java.net.SocketTimeoutException",
+        "java.net.UnknownHostException"
+      ],
+      "symbols": [
+        {
+          "name": "safeApiCall",
+          "kind": "fun",
+          "line": 10,
+          "modifiers": [
+            "suspend",
+            "inline"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-ui/src/main/java/com/rpla/fakestore/core/ui/model/UiListItem.kt",
+      "language": "kotlin",
+      "lines": 10,
+      "imports": [],
+      "symbols": [
+        {
+          "name": "UiListItem",
+          "kind": "class",
+          "line": 3,
+          "modifiers": [
+            "data"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-ui/src/main/java/com/rpla/fakestore/core/ui/theme/Color.kt",
+      "language": "kotlin",
+      "lines": 18,
+      "imports": [
+        "androidx.compose.ui.graphics.Color"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "core-ui/src/main/java/com/rpla/fakestore/core/ui/theme/Theme.kt",
+      "language": "kotlin",
+      "lines": 59,
+      "imports": [
+        "android.os.Build",
+        "androidx.compose.foundation.isSystemInDarkTheme",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.darkColorScheme",
+        "androidx.compose.material3.dynamicDarkColorScheme",
+        "androidx.compose.material3.dynamicLightColorScheme",
+        "androidx.compose.material3.lightColorScheme",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.platform.LocalContext"
+      ],
+      "symbols": [
+        {
+          "name": "FakeStoreTheme",
+          "kind": "fun",
+          "line": 37
+        }
+      ]
+    },
+    {
+      "path": "core-ui/src/main/java/com/rpla/fakestore/core/ui/theme/Type.kt",
+      "language": "kotlin",
+      "lines": 36,
+      "imports": [
+        "androidx.compose.material3.Typography",
+        "androidx.compose.ui.text.TextStyle",
+        "androidx.compose.ui.text.font.FontFamily",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.unit.sp"
+      ],
+      "symbols": []
+    },
+    {
+      "path": "core-ui/src/main/java/com/rpla/fakestore/core/ui/view/FavoriteIconMode.kt",
+      "language": "kotlin",
+      "lines": 6,
+      "imports": [],
+      "symbols": [
+        {
+          "name": "FavoriteIconMode",
+          "kind": "class",
+          "line": 3,
+          "modifiers": [
+            "enum"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-ui/src/main/java/com/rpla/fakestore/core/ui/view/LoaindgItem.kt",
+      "language": "kotlin",
+      "lines": 38,
+      "imports": [
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.wrapContentSize",
+        "androidx.compose.material3.CircularProgressIndicator",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.tooling.preview.Preview",
+        "androidx.compose.ui.unit.dp",
+        "com.rpla.fakestore.core.ui.theme.FakeStoreTheme",
+        "com.rpla.fakestore.core.ui.theme.PinkA400",
+        "com.rpla.fakestore.core.ui.view.testtags.TestTags.LOADING_ITEM"
+      ],
+      "symbols": [
+        {
+          "name": "LoadingItem",
+          "kind": "fun",
+          "line": 18
+        },
+        {
+          "name": "Preview_LoadingItem",
+          "kind": "fun",
+          "line": 34,
+          "modifiers": [
+            "private"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-ui/src/main/java/com/rpla/fakestore/core/ui/view/ProductGrid.kt",
+      "language": "kotlin",
+      "lines": 41,
+      "imports": [
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.PaddingValues",
+        "androidx.compose.foundation.lazy.grid.GridCells",
+        "androidx.compose.foundation.lazy.grid.LazyVerticalGrid",
+        "androidx.compose.foundation.lazy.grid.items",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.unit.dp",
+        "com.rpla.fakestore.core.ui.model.UiListItem",
+        "com.rpla.fakestore.core.ui.view.testtags.TestTags.PRODUCT_GRID"
+      ],
+      "symbols": [
+        {
+          "name": "ProductGrid",
+          "kind": "fun",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "path": "core-ui/src/main/java/com/rpla/fakestore/core/ui/view/ProductItem.kt",
+      "language": "kotlin",
+      "lines": 290,
+      "imports": [
+        "androidx.compose.foundation.BorderStroke",
+        "androidx.compose.foundation.background",
+        "androidx.compose.foundation.border",
+        "androidx.compose.foundation.clickable",
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxHeight",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.foundation.layout.size",
+        "androidx.compose.foundation.layout.width",
+        "androidx.compose.foundation.shape.RoundedCornerShape",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.filled.AccountCircle",
+        "androidx.compose.material.icons.filled.Favorite",
+        "androidx.compose.material.icons.filled.Warning",
+        "androidx.compose.material.icons.outlined.FavoriteBorder",
+        "androidx.compose.material3.Card",
+        "androidx.compose.material3.CardDefaults",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.IconButton",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.draw.clip",
+        "androidx.compose.ui.graphics.Color",
+        "androidx.compose.ui.layout.ContentScale",
+        "androidx.compose.ui.platform.LocalContext",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.text.style.TextOverflow",
+        "androidx.compose.ui.tooling.preview.Preview",
+        "androidx.compose.ui.unit.dp",
+        "androidx.compose.ui.unit.sp",
+        "androidx.constraintlayout.compose.ConstraintLayout",
+        "androidx.constraintlayout.compose.Dimension",
+        "coil.compose.SubcomposeAsyncImage",
+        "coil.request.ImageRequest",
+        "com.rpla.fakestore.core.ui.R",
+        "com.rpla.fakestore.core.ui.model.UiListItem",
+        "com.rpla.fakestore.core.ui.theme.FakeStoreTheme",
+        "com.rpla.fakestore.core.ui.view.testtags.TestTags.PRODUCT_FAVORITE_ICON",
+        "com.rpla.fakestore.core.ui.view.testtags.TestTags.PRODUCT_ITEM",
+        "com.rpla.fakestore.core.ui.view.testtags.TestTags.PRODUCT_NAME",
+        "com.rpla.fakestore.core.ui.view.testtags.TestTags.PRODUCT_STATUS"
+      ],
+      "symbols": [
+        {
+          "name": "ProductItem",
+          "kind": "fun",
+          "line": 54
+        },
+        {
+          "name": "Preview_ProductItem_Normal",
+          "kind": "fun",
+          "line": 252,
+          "modifiers": [
+            "private"
+          ]
+        },
+        {
+          "name": "Preview_ProductItem_Favorite",
+          "kind": "fun",
+          "line": 273,
+          "modifiers": [
+            "private"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-ui/src/main/java/com/rpla/fakestore/core/ui/view/testtags/TestTags.kt",
+      "language": "kotlin",
+      "lines": 18,
+      "imports": [],
+      "symbols": [
+        {
+          "name": "TestTags",
+          "kind": "object",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "core-ui/src/main/java/com/rpla/fakestore/core/ui/view/viewmodel/BaseViewModel.kt",
+      "language": "kotlin",
+      "lines": 24,
+      "imports": [
+        "androidx.lifecycle.ViewModel",
+        "kotlinx.coroutines.flow.MutableStateFlow",
+        "kotlinx.coroutines.flow.asStateFlow"
+      ],
+      "symbols": [
+        {
+          "name": "BaseViewModel",
+          "kind": "class",
+          "line": 7,
+          "modifiers": [
+            "abstract"
+          ]
+        },
+        {
+          "name": "dispatchIntent",
+          "kind": "fun",
+          "line": 11,
+          "container": "BaseViewModel"
+        },
+        {
+          "name": "setState",
+          "kind": "fun",
+          "line": 15,
+          "container": "BaseViewModel",
+          "modifiers": [
+            "protected"
+          ]
+        },
+        {
+          "name": "createInitialState",
+          "kind": "fun",
+          "line": 19,
+          "container": "BaseViewModel",
+          "modifiers": [
+            "abstract"
+          ]
+        },
+        {
+          "name": "mapIntentToAction",
+          "kind": "fun",
+          "line": 21,
+          "container": "BaseViewModel",
+          "modifiers": [
+            "abstract"
+          ]
+        },
+        {
+          "name": "handleAction",
+          "kind": "fun",
+          "line": 23,
+          "container": "BaseViewModel",
+          "modifiers": [
+            "abstract"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core-ui/src/main/java/com/rpla/fakestore/core/ui/view/viewmodel/ViewAction.kt",
+      "language": "kotlin",
+      "lines": 3,
+      "imports": [],
+      "symbols": [
+        {
+          "name": "ViewAction",
+          "kind": "interface",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "core-ui/src/main/java/com/rpla/fakestore/core/ui/view/viewmodel/ViewIntent.kt",
+      "language": "kotlin",
+      "lines": 3,
+      "imports": [],
+      "symbols": [
+        {
+          "name": "ViewIntent",
+          "kind": "interface",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "core-ui/src/main/java/com/rpla/fakestore/core/ui/view/viewmodel/ViewState.kt",
+      "language": "kotlin",
+      "lines": 3,
+      "imports": [],
+      "symbols": [
+        {
+          "name": "ViewState",
+          "kind": "interface",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "feature-favorites/src/main/java/com/rpla/fakestore/feature/favorites/ui/mapper/FavoriteUiMapper.kt",
+      "language": "kotlin",
+      "lines": 15,
+      "imports": [
+        "com.rpla.fakestore.core.model.Product",
+        "com.rpla.fakestore.core.ui.model.UiListItem",
+        "java.util.Locale"
+      ],
+      "symbols": [
+        {
+          "name": "toUiListItem",
+          "kind": "fun",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "feature-favorites/src/main/java/com/rpla/fakestore/feature/favorites/ui/view/FavoritesList.kt",
+      "language": "kotlin",
+      "lines": 99,
+      "imports": [
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.PaddingValues",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.hilt.navigation.compose.hiltViewModel",
+        "androidx.lifecycle.compose.collectAsStateWithLifecycle",
+        "com.rpla.fakestore.core.ui.view.FavoriteIconMode",
+        "com.rpla.fakestore.core.ui.view.LoadingItem",
+        "com.rpla.fakestore.core.ui.view.ProductGrid",
+        "com.rpla.fakestore.feature.favorites.R",
+        "com.rpla.fakestore.feature.favorites.ui.viewmodel.FavoritesListIntent",
+        "com.rpla.fakestore.feature.favorites.ui.viewmodel.FavoritesListState",
+        "com.rpla.fakestore.feature.favorites.ui.viewmodel.FavoritesListViewModel"
+      ],
+      "symbols": [
+        {
+          "name": "FavoritesRoute",
+          "kind": "fun",
+          "line": 26
+        },
+        {
+          "name": "FavoritesList",
+          "kind": "fun",
+          "line": 44
+        }
+      ]
+    },
+    {
+      "path": "feature-favorites/src/main/java/com/rpla/fakestore/feature/favorites/ui/viewmodel/FavoritesListAction.kt",
+      "language": "kotlin",
+      "lines": 11,
+      "imports": [
+        "com.rpla.fakestore.core.ui.view.viewmodel.ViewAction"
+      ],
+      "symbols": [
+        {
+          "name": "FavoritesListAction",
+          "kind": "interface",
+          "line": 5,
+          "modifiers": [
+            "sealed"
+          ]
+        },
+        {
+          "name": "ObserveFavorites",
+          "kind": "object",
+          "line": 6,
+          "container": "FavoritesListAction",
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "RemoveFavorite",
+          "kind": "class",
+          "line": 8,
+          "container": "FavoritesListAction",
+          "modifiers": [
+            "data"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-favorites/src/main/java/com/rpla/fakestore/feature/favorites/ui/viewmodel/FavoritesListIntent.kt",
+      "language": "kotlin",
+      "lines": 11,
+      "imports": [
+        "com.rpla.fakestore.core.ui.view.viewmodel.ViewIntent"
+      ],
+      "symbols": [
+        {
+          "name": "FavoritesListIntent",
+          "kind": "interface",
+          "line": 5,
+          "modifiers": [
+            "sealed"
+          ]
+        },
+        {
+          "name": "FavoritesList",
+          "kind": "object",
+          "line": 6,
+          "container": "FavoritesListIntent",
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "RemoveFavorite",
+          "kind": "class",
+          "line": 8,
+          "container": "FavoritesListIntent",
+          "modifiers": [
+            "data"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-favorites/src/main/java/com/rpla/fakestore/feature/favorites/ui/viewmodel/FavoritesListState.kt",
+      "language": "kotlin",
+      "lines": 18,
+      "imports": [
+        "com.rpla.fakestore.core.ui.model.UiListItem",
+        "com.rpla.fakestore.core.ui.view.viewmodel.ViewState"
+      ],
+      "symbols": [
+        {
+          "name": "FavoritesListState",
+          "kind": "interface",
+          "line": 6,
+          "modifiers": [
+            "sealed"
+          ]
+        },
+        {
+          "name": "InitialState",
+          "kind": "object",
+          "line": 7,
+          "container": "FavoritesListState",
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "LoadingState",
+          "kind": "object",
+          "line": 9,
+          "container": "FavoritesListState",
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "ErrorState",
+          "kind": "class",
+          "line": 11,
+          "container": "FavoritesListState",
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "FavoritesListData",
+          "kind": "class",
+          "line": 15,
+          "container": "FavoritesListState",
+          "modifiers": [
+            "data"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-favorites/src/main/java/com/rpla/fakestore/feature/favorites/ui/viewmodel/FavoritesListViewModel.kt",
+      "language": "kotlin",
+      "lines": 69,
+      "imports": [
+        "androidx.lifecycle.viewModelScope",
+        "com.rpla.fakestore.core.coroutines.dispatcher.IODispatcher",
+        "com.rpla.fakestore.core.domain.usecase.favorites.ObserveFavoritesUseCase",
+        "com.rpla.fakestore.core.domain.usecase.favorites.RemoveFavoriteUseCase",
+        "com.rpla.fakestore.core.ui.view.viewmodel.BaseViewModel",
+        "com.rpla.fakestore.feature.favorites.ui.mapper.toUiListItem",
+        "dagger.hilt.android.lifecycle.HiltViewModel",
+        "kotlinx.coroutines.CoroutineDispatcher",
+        "kotlinx.coroutines.Job",
+        "kotlinx.coroutines.flow.catch",
+        "kotlinx.coroutines.launch",
+        "kotlinx.coroutines.withContext",
+        "javax.inject.Inject"
+      ],
+      "symbols": [
+        {
+          "name": "FavoritesListViewModel",
+          "kind": "class",
+          "line": 18
+        },
+        {
+          "name": "createInitialState",
+          "kind": "fun",
+          "line": 27,
+          "modifiers": [
+            "override"
+          ]
+        },
+        {
+          "name": "mapIntentToAction",
+          "kind": "fun",
+          "line": 29,
+          "modifiers": [
+            "override"
+          ]
+        },
+        {
+          "name": "handleAction",
+          "kind": "fun",
+          "line": 35,
+          "modifiers": [
+            "override"
+          ]
+        },
+        {
+          "name": "observeFavorites",
+          "kind": "fun",
+          "line": 42,
+          "modifiers": [
+            "private"
+          ]
+        },
+        {
+          "name": "removeFavorite",
+          "kind": "fun",
+          "line": 60,
+          "modifiers": [
+            "private"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-favorites/src/test/java/com/rpla/fakestore/feature/favorites/ui/viewmodel/FavoritesListViewModelTest.kt",
+      "language": "kotlin",
+      "lines": 154,
+      "imports": [
+        "com.rpla.fakestore.core.domain.entity.ResultBundle",
+        "com.rpla.fakestore.core.domain.usecase.favorites.ObserveFavoritesUseCase",
+        "com.rpla.fakestore.core.domain.usecase.favorites.RemoveFavoriteUseCase",
+        "com.rpla.fakestore.core.model.Product",
+        "io.kotest.matchers.shouldBe",
+        "io.kotest.matchers.types.shouldBeInstanceOf",
+        "io.mockk.coEvery",
+        "io.mockk.coVerify",
+        "io.mockk.every",
+        "io.mockk.mockk",
+        "kotlinx.coroutines.Dispatchers",
+        "kotlinx.coroutines.ExperimentalCoroutinesApi",
+        "kotlinx.coroutines.flow.MutableSharedFlow",
+        "kotlinx.coroutines.flow.flow",
+        "kotlinx.coroutines.flow.take",
+        "kotlinx.coroutines.flow.toList",
+        "kotlinx.coroutines.launch",
+        "kotlinx.coroutines.test.StandardTestDispatcher",
+        "kotlinx.coroutines.test.UnconfinedTestDispatcher",
+        "kotlinx.coroutines.test.advanceUntilIdle",
+        "kotlinx.coroutines.test.resetMain",
+        "kotlinx.coroutines.test.runCurrent",
+        "kotlinx.coroutines.test.runTest",
+        "kotlinx.coroutines.test.setMain",
+        "org.junit.jupiter.api.AfterEach",
+        "org.junit.jupiter.api.BeforeEach",
+        "org.junit.jupiter.api.Test"
+      ],
+      "symbols": [
+        {
+          "name": "FavoritesListViewModelTest",
+          "kind": "class",
+          "line": 32
+        },
+        {
+          "name": "setUp",
+          "kind": "fun",
+          "line": 41,
+          "container": "FavoritesListViewModelTest"
+        },
+        {
+          "name": "tearDown",
+          "kind": "fun",
+          "line": 56,
+          "container": "FavoritesListViewModelTest"
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/main/java/com/rpla/fakestore/feature/products/data/ProductsRepositoryImpl.kt",
+      "language": "kotlin",
+      "lines": 28,
+      "imports": [
+        "com.rpla.fakestore.core.domain.entity.ResultBundle",
+        "com.rpla.fakestore.core.model.Product",
+        "com.rpla.fakestore.core.network.exception.RemoteException",
+        "com.rpla.fakestore.core.network.mapper.ErrorMapper",
+        "com.rpla.fakestore.core.network.retrofit.safeApiCall",
+        "com.rpla.fakestore.feature.products.data.mapper.toModel",
+        "com.rpla.fakestore.feature.products.data.remote.ProductsService",
+        "com.rpla.fakestore.feature.products.domain.repository.ProductsRepository",
+        "javax.inject.Inject"
+      ],
+      "symbols": [
+        {
+          "name": "ProductsRepositoryImpl",
+          "kind": "class",
+          "line": 13
+        },
+        {
+          "name": "getProducts",
+          "kind": "fun",
+          "line": 19,
+          "modifiers": [
+            "override",
+            "suspend"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/main/java/com/rpla/fakestore/feature/products/data/mapper/ProductMappers.kt",
+      "language": "kotlin",
+      "lines": 15,
+      "imports": [
+        "com.rpla.fakestore.core.model.Product",
+        "com.rpla.fakestore.feature.products.data.remote.dto.ProductDto"
+      ],
+      "symbols": [
+        {
+          "name": "toModel",
+          "kind": "fun",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/main/java/com/rpla/fakestore/feature/products/data/remote/ProductsService.kt",
+      "language": "kotlin",
+      "lines": 9,
+      "imports": [
+        "com.rpla.fakestore.feature.products.data.remote.dto.ProductDto",
+        "retrofit2.http.GET"
+      ],
+      "symbols": [
+        {
+          "name": "ProductsService",
+          "kind": "interface",
+          "line": 6
+        },
+        {
+          "name": "getProducts",
+          "kind": "fun",
+          "line": 8,
+          "container": "ProductsService",
+          "modifiers": [
+            "suspend"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/main/java/com/rpla/fakestore/feature/products/data/remote/dto/ProductDto.kt",
+      "language": "kotlin",
+      "lines": 12,
+      "imports": [
+        "com.squareup.moshi.Json"
+      ],
+      "symbols": [
+        {
+          "name": "ProductDto",
+          "kind": "class",
+          "line": 5,
+          "modifiers": [
+            "data"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/main/java/com/rpla/fakestore/feature/products/di/ProductsModule.kt",
+      "language": "kotlin",
+      "lines": 28,
+      "imports": [
+        "com.rpla.fakestore.feature.products.data.ProductsRepositoryImpl",
+        "com.rpla.fakestore.feature.products.data.remote.ProductsService",
+        "com.rpla.fakestore.feature.products.domain.repository.ProductsRepository",
+        "dagger.Binds",
+        "dagger.Module",
+        "dagger.Provides",
+        "dagger.hilt.InstallIn",
+        "dagger.hilt.components.SingletonComponent",
+        "retrofit2.Retrofit",
+        "javax.inject.Singleton"
+      ],
+      "symbols": [
+        {
+          "name": "ProductsModule",
+          "kind": "object",
+          "line": 16
+        },
+        {
+          "name": "provideProductsService",
+          "kind": "fun",
+          "line": 19,
+          "container": "ProductsModule"
+        },
+        {
+          "name": "ProductsBindingsModule",
+          "kind": "class",
+          "line": 23,
+          "container": "ProductsModule",
+          "modifiers": [
+            "abstract"
+          ]
+        },
+        {
+          "name": "bindProductsRepository",
+          "kind": "fun",
+          "line": 26,
+          "container": "ProductsBindingsModule",
+          "modifiers": [
+            "abstract"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/main/java/com/rpla/fakestore/feature/products/domain/GetProductListRequest.kt",
+      "language": "kotlin",
+      "lines": 3,
+      "imports": [],
+      "symbols": [
+        {
+          "name": "GetProductListRequest",
+          "kind": "class",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/main/java/com/rpla/fakestore/feature/products/domain/repository/ProductsRepository.kt",
+      "language": "kotlin",
+      "lines": 8,
+      "imports": [
+        "com.rpla.fakestore.core.domain.entity.ResultBundle",
+        "com.rpla.fakestore.core.model.Product"
+      ],
+      "symbols": [
+        {
+          "name": "ProductsRepository",
+          "kind": "interface",
+          "line": 6
+        },
+        {
+          "name": "getProducts",
+          "kind": "fun",
+          "line": 7,
+          "container": "ProductsRepository",
+          "modifiers": [
+            "suspend"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/main/java/com/rpla/fakestore/feature/products/domain/usecase/GetProductsListUseCase.kt",
+      "language": "kotlin",
+      "lines": 16,
+      "imports": [
+        "com.rpla.fakestore.core.domain.base.BaseUseCase",
+        "com.rpla.fakestore.core.domain.entity.ResultBundle",
+        "com.rpla.fakestore.core.model.Product",
+        "com.rpla.fakestore.feature.products.domain.GetProductListRequest",
+        "com.rpla.fakestore.feature.products.domain.repository.ProductsRepository",
+        "javax.inject.Inject"
+      ],
+      "symbols": [
+        {
+          "name": "GetProductsListUseCase",
+          "kind": "class",
+          "line": 10
+        },
+        {
+          "name": "run",
+          "kind": "fun",
+          "line": 15,
+          "modifiers": [
+            "override",
+            "suspend"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/main/java/com/rpla/fakestore/feature/products/ui/mapper/ProductUiMapper.kt",
+      "language": "kotlin",
+      "lines": 15,
+      "imports": [
+        "com.rpla.fakestore.core.model.Product",
+        "com.rpla.fakestore.core.ui.model.UiListItem",
+        "java.util.Locale"
+      ],
+      "symbols": [
+        {
+          "name": "toUiListItem",
+          "kind": "fun",
+          "line": 7
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/main/java/com/rpla/fakestore/feature/products/ui/view/ProductsList.kt",
+      "language": "kotlin",
+      "lines": 160,
+      "imports": [
+        "androidx.compose.foundation.layout.Box",
+        "androidx.compose.foundation.layout.PaddingValues",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.material3.Button",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.tooling.preview.Preview",
+        "androidx.compose.ui.unit.dp",
+        "androidx.hilt.navigation.compose.hiltViewModel",
+        "androidx.lifecycle.compose.collectAsStateWithLifecycle",
+        "com.rpla.fakestore.core.ui.model.UiListItem",
+        "com.rpla.fakestore.core.ui.theme.FakeStoreTheme",
+        "com.rpla.fakestore.core.ui.view.FavoriteIconMode",
+        "com.rpla.fakestore.core.ui.view.LoadingItem",
+        "com.rpla.fakestore.core.ui.view.ProductGrid",
+        "com.rpla.fakestore.feature.products.R",
+        "com.rpla.fakestore.feature.products.ui.viewmodel.ProductListIntent",
+        "com.rpla.fakestore.feature.products.ui.viewmodel.ProductListState",
+        "com.rpla.fakestore.feature.products.ui.viewmodel.ProductsListViewModel"
+      ],
+      "symbols": [
+        {
+          "name": "ProductsRoute",
+          "kind": "fun",
+          "line": 31
+        },
+        {
+          "name": "ProductList",
+          "kind": "fun",
+          "line": 52
+        },
+        {
+          "name": "Preview_ProductList_Loading",
+          "kind": "fun",
+          "line": 104,
+          "modifiers": [
+            "private"
+          ]
+        },
+        {
+          "name": "Preview_ProductList_Error",
+          "kind": "fun",
+          "line": 117,
+          "modifiers": [
+            "private"
+          ]
+        },
+        {
+          "name": "Preview_ProductList_Content",
+          "kind": "fun",
+          "line": 130,
+          "modifiers": [
+            "private"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/main/java/com/rpla/fakestore/feature/products/ui/viewmodel/ProductListAction.kt",
+      "language": "kotlin",
+      "lines": 11,
+      "imports": [
+        "com.rpla.fakestore.core.ui.view.viewmodel.ViewAction"
+      ],
+      "symbols": [
+        {
+          "name": "ProductListAction",
+          "kind": "class",
+          "line": 5,
+          "modifiers": [
+            "sealed"
+          ]
+        },
+        {
+          "name": "LoadProducts",
+          "kind": "object",
+          "line": 6,
+          "container": "ProductListAction",
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "ToggleFavorite",
+          "kind": "class",
+          "line": 8,
+          "container": "ProductListAction",
+          "modifiers": [
+            "data"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/main/java/com/rpla/fakestore/feature/products/ui/viewmodel/ProductListIntent.kt",
+      "language": "kotlin",
+      "lines": 11,
+      "imports": [
+        "com.rpla.fakestore.core.ui.view.viewmodel.ViewIntent"
+      ],
+      "symbols": [
+        {
+          "name": "ProductListIntent",
+          "kind": "class",
+          "line": 5,
+          "modifiers": [
+            "sealed"
+          ]
+        },
+        {
+          "name": "ProductList",
+          "kind": "object",
+          "line": 6,
+          "container": "ProductListIntent",
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "ToggleFavorite",
+          "kind": "class",
+          "line": 8,
+          "container": "ProductListIntent",
+          "modifiers": [
+            "data"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/main/java/com/rpla/fakestore/feature/products/ui/viewmodel/ProductListState.kt",
+      "language": "kotlin",
+      "lines": 18,
+      "imports": [
+        "com.rpla.fakestore.core.ui.model.UiListItem",
+        "com.rpla.fakestore.core.ui.view.viewmodel.ViewState"
+      ],
+      "symbols": [
+        {
+          "name": "ProductListState",
+          "kind": "class",
+          "line": 6,
+          "modifiers": [
+            "sealed"
+          ]
+        },
+        {
+          "name": "InitialState",
+          "kind": "object",
+          "line": 7,
+          "container": "ProductListState",
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "LoadingState",
+          "kind": "object",
+          "line": 9,
+          "container": "ProductListState",
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "ProductsListData",
+          "kind": "class",
+          "line": 11,
+          "container": "ProductListState",
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "ErrorState",
+          "kind": "class",
+          "line": 15,
+          "container": "ProductListState",
+          "modifiers": [
+            "data"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/main/java/com/rpla/fakestore/feature/products/ui/viewmodel/ProductsListViewModel.kt",
+      "language": "kotlin",
+      "lines": 165,
+      "imports": [
+        "androidx.lifecycle.viewModelScope",
+        "com.rpla.fakestore.core.coroutines.dispatcher.IODispatcher",
+        "com.rpla.fakestore.core.domain.usecase.favorites.ObserveFavoriteIdsUseCase",
+        "com.rpla.fakestore.core.domain.usecase.favorites.ToggleFavoriteUseCase",
+        "com.rpla.fakestore.core.model.Product",
+        "com.rpla.fakestore.core.ui.view.viewmodel.BaseViewModel",
+        "com.rpla.fakestore.feature.products.domain.GetProductListRequest",
+        "com.rpla.fakestore.feature.products.domain.usecase.GetProductsListUseCase",
+        "com.rpla.fakestore.feature.products.ui.mapper.toUiListItem",
+        "dagger.hilt.android.lifecycle.HiltViewModel",
+        "kotlinx.coroutines.CoroutineDispatcher",
+        "kotlinx.coroutines.Job",
+        "kotlinx.coroutines.flow.collectLatest",
+        "kotlinx.coroutines.launch",
+        "kotlinx.coroutines.withContext",
+        "javax.inject.Inject"
+      ],
+      "symbols": [
+        {
+          "name": "ProductsListViewModel",
+          "kind": "class",
+          "line": 21
+        },
+        {
+          "name": "createInitialState",
+          "kind": "fun",
+          "line": 34,
+          "modifiers": [
+            "override"
+          ]
+        },
+        {
+          "name": "handleAction",
+          "kind": "fun",
+          "line": 36,
+          "modifiers": [
+            "override"
+          ]
+        },
+        {
+          "name": "mapIntentToAction",
+          "kind": "fun",
+          "line": 46,
+          "modifiers": [
+            "override"
+          ]
+        },
+        {
+          "name": "observeFavoriteIdsIfNeeded",
+          "kind": "fun",
+          "line": 52,
+          "modifiers": [
+            "private"
+          ]
+        },
+        {
+          "name": "loadProducts",
+          "kind": "fun",
+          "line": 65,
+          "modifiers": [
+            "private"
+          ]
+        },
+        {
+          "name": "toggleFavorite",
+          "kind": "fun",
+          "line": 91,
+          "modifiers": [
+            "private"
+          ]
+        },
+        {
+          "name": "revertFavoriteUi",
+          "kind": "fun",
+          "line": 135,
+          "modifiers": [
+            "private"
+          ]
+        },
+        {
+          "name": "refreshFavoriteFlagsInUi",
+          "kind": "fun",
+          "line": 150,
+          "modifiers": [
+            "private"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/test/java/com/rpla/fakestore/feature/products/data/ProductsRepositoryImplTest.kt",
+      "language": "kotlin",
+      "lines": 134,
+      "imports": [
+        "com.rpla.fakestore.core.domain.entity.ErrorResult",
+        "com.rpla.fakestore.core.domain.entity.ResultBundle",
+        "com.rpla.fakestore.core.network.mapper.ErrorMapper",
+        "com.rpla.fakestore.feature.products.data.remote.ProductsService",
+        "com.rpla.fakestore.feature.products.fixtures.ProductDtoFixtures.dto1",
+        "io.kotest.matchers.shouldBe",
+        "io.mockk.coEvery",
+        "io.mockk.coVerify",
+        "io.mockk.confirmVerified",
+        "io.mockk.mockk",
+        "kotlinx.coroutines.test.runTest",
+        "okhttp3.MediaType.Companion.toMediaType",
+        "okhttp3.ResponseBody.Companion.toResponseBody",
+        "org.junit.jupiter.api.AfterEach",
+        "org.junit.jupiter.api.Test",
+        "retrofit2.HttpException",
+        "retrofit2.Response",
+        "java.net.UnknownHostException"
+      ],
+      "symbols": [
+        {
+          "name": "ProductsRepositoryImplTest",
+          "kind": "class",
+          "line": 22
+        },
+        {
+          "name": "tearDown",
+          "kind": "fun",
+          "line": 33,
+          "container": "ProductsRepositoryImplTest"
+        },
+        {
+          "name": "httpException",
+          "kind": "fun",
+          "line": 128,
+          "container": "ProductsRepositoryImplTest",
+          "modifiers": [
+            "private"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/test/java/com/rpla/fakestore/feature/products/data/mapper/ErrorMapperTest.kt",
+      "language": "kotlin",
+      "lines": 46,
+      "imports": [
+        "com.rpla.fakestore.core.domain.entity.ErrorResult",
+        "com.rpla.fakestore.core.network.exception.RemoteException",
+        "com.rpla.fakestore.core.network.mapper.ErrorMapper",
+        "io.kotest.matchers.shouldBe",
+        "org.junit.jupiter.api.Test"
+      ],
+      "symbols": [
+        {
+          "name": "ErrorMapperTest",
+          "kind": "class",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/test/java/com/rpla/fakestore/feature/products/fixtures/ProductDtoFixtures.kt",
+      "language": "kotlin",
+      "lines": 55,
+      "imports": [
+        "com.rpla.fakestore.feature.products.data.remote.dto.ProductDto"
+      ],
+      "symbols": [
+        {
+          "name": "ProductDtoFixtures",
+          "kind": "object",
+          "line": 5
+        },
+        {
+          "name": "dto1",
+          "kind": "fun",
+          "line": 6,
+          "container": "ProductDtoFixtures"
+        },
+        {
+          "name": "dto2",
+          "kind": "fun",
+          "line": 18,
+          "container": "ProductDtoFixtures"
+        },
+        {
+          "name": "dto3",
+          "kind": "fun",
+          "line": 30,
+          "container": "ProductDtoFixtures"
+        },
+        {
+          "name": "dto4",
+          "kind": "fun",
+          "line": 42,
+          "container": "ProductDtoFixtures"
+        },
+        {
+          "name": "listDefault",
+          "kind": "fun",
+          "line": 54,
+          "container": "ProductDtoFixtures"
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/test/java/com/rpla/fakestore/feature/products/fixtures/ProductFixtures.kt",
+      "language": "kotlin",
+      "lines": 57,
+      "imports": [
+        "com.rpla.fakestore.core.model.Product"
+      ],
+      "symbols": [
+        {
+          "name": "ProductFixtures",
+          "kind": "object",
+          "line": 5
+        },
+        {
+          "name": "product1",
+          "kind": "fun",
+          "line": 6,
+          "container": "ProductFixtures"
+        },
+        {
+          "name": "product2",
+          "kind": "fun",
+          "line": 19,
+          "container": "ProductFixtures"
+        },
+        {
+          "name": "product3",
+          "kind": "fun",
+          "line": 32,
+          "container": "ProductFixtures"
+        },
+        {
+          "name": "product4",
+          "kind": "fun",
+          "line": 45,
+          "container": "ProductFixtures"
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/test/java/com/rpla/fakestore/feature/products/mapper/ProductUiMapperTest.kt",
+      "language": "kotlin",
+      "lines": 36,
+      "imports": [
+        "com.rpla.fakestore.feature.products.fixtures.ProductFixtures.product1",
+        "com.rpla.fakestore.feature.products.fixtures.ProductFixtures.product3",
+        "com.rpla.fakestore.feature.products.ui.mapper.toUiListItem",
+        "io.kotest.matchers.shouldBe",
+        "org.junit.jupiter.api.Test"
+      ],
+      "symbols": [
+        {
+          "name": "ProductUiMapperTest",
+          "kind": "class",
+          "line": 9
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/test/java/com/rpla/fakestore/feature/products/usecase/GetProductsListUseCaseTest.kt",
+      "language": "kotlin",
+      "lines": 67,
+      "imports": [
+        "com.rpla.fakestore.core.domain.entity.ErrorResult",
+        "com.rpla.fakestore.core.domain.entity.ResultBundle",
+        "com.rpla.fakestore.core.model.Product",
+        "com.rpla.fakestore.feature.products.domain.GetProductListRequest",
+        "com.rpla.fakestore.feature.products.domain.repository.ProductsRepository",
+        "com.rpla.fakestore.feature.products.domain.usecase.GetProductsListUseCase",
+        "com.rpla.fakestore.feature.products.fixtures.ProductFixtures.product1",
+        "io.kotest.matchers.shouldBe",
+        "io.mockk.coEvery",
+        "io.mockk.coVerify",
+        "io.mockk.confirmVerified",
+        "io.mockk.mockk",
+        "kotlinx.coroutines.test.runTest",
+        "org.junit.jupiter.api.AfterEach",
+        "org.junit.jupiter.api.Test"
+      ],
+      "symbols": [
+        {
+          "name": "GetProductsListUseCaseTest",
+          "kind": "class",
+          "line": 19
+        },
+        {
+          "name": "tearDown",
+          "kind": "fun",
+          "line": 24,
+          "container": "GetProductsListUseCaseTest"
+        }
+      ]
+    },
+    {
+      "path": "feature-products/src/test/java/com/rpla/fakestore/feature/products/viewmodel/ProductsListViewModelTest.kt",
+      "language": "kotlin",
+      "lines": 246,
+      "imports": [
+        "com.rpla.fakestore.core.domain.entity.ErrorResult",
+        "com.rpla.fakestore.core.domain.entity.ResultBundle",
+        "com.rpla.fakestore.core.domain.usecase.favorites.ObserveFavoriteIdsUseCase",
+        "com.rpla.fakestore.core.domain.usecase.favorites.ToggleFavoriteUseCase",
+        "com.rpla.fakestore.feature.products.domain.GetProductListRequest",
+        "com.rpla.fakestore.feature.products.domain.usecase.GetProductsListUseCase",
+        "com.rpla.fakestore.feature.products.fixtures.ProductFixtures.product1",
+        "com.rpla.fakestore.feature.products.fixtures.ProductFixtures.product4",
+        "com.rpla.fakestore.feature.products.ui.viewmodel.ProductListIntent",
+        "com.rpla.fakestore.feature.products.ui.viewmodel.ProductListState",
+        "com.rpla.fakestore.feature.products.ui.viewmodel.ProductsListViewModel",
+        "io.kotest.matchers.shouldBe",
+        "io.kotest.matchers.types.shouldBeInstanceOf",
+        "io.mockk.coEvery",
+        "io.mockk.coVerify",
+        "io.mockk.confirmVerified",
+        "io.mockk.every",
+        "io.mockk.mockk",
+        "kotlinx.coroutines.Dispatchers",
+        "kotlinx.coroutines.ExperimentalCoroutinesApi",
+        "kotlinx.coroutines.flow.MutableSharedFlow",
+        "kotlinx.coroutines.flow.flowOf",
+        "kotlinx.coroutines.flow.take",
+        "kotlinx.coroutines.flow.toList",
+        "kotlinx.coroutines.launch",
+        "kotlinx.coroutines.test.StandardTestDispatcher",
+        "kotlinx.coroutines.test.UnconfinedTestDispatcher",
+        "kotlinx.coroutines.test.advanceUntilIdle",
+        "kotlinx.coroutines.test.resetMain",
+        "kotlinx.coroutines.test.runCurrent",
+        "kotlinx.coroutines.test.runTest",
+        "kotlinx.coroutines.test.setMain",
+        "org.junit.jupiter.api.AfterEach",
+        "org.junit.jupiter.api.BeforeEach",
+        "org.junit.jupiter.api.Test"
+      ],
+      "symbols": [
+        {
+          "name": "ProductsListViewModelTest",
+          "kind": "class",
+          "line": 40
+        },
+        {
+          "name": "setUp",
+          "kind": "fun",
+          "line": 50,
+          "container": "ProductsListViewModelTest"
+        },
+        {
+          "name": "tearDown",
+          "kind": "fun",
+          "line": 66,
+          "container": "ProductsListViewModelTest"
+        }
+      ]
+    },
+    {
+      "path": "feature-profile/src/main/java/com/rpla/fakestore/feature/profile/data/ProfileRepositoryImpl.kt",
+      "language": "kotlin",
+      "lines": 31,
+      "imports": [
+        "com.rpla.fakestore.core.domain.entity.ResultBundle",
+        "com.rpla.fakestore.core.network.exception.RemoteException",
+        "com.rpla.fakestore.core.network.mapper.ErrorMapper",
+        "com.rpla.fakestore.core.network.retrofit.safeApiCall",
+        "com.rpla.fakestore.feature.profile.data.mapper.toModel",
+        "com.rpla.fakestore.feature.profile.data.remote.ProfileService",
+        "com.rpla.fakestore.feature.profile.domain.model.Profile",
+        "com.rpla.fakestore.feature.profile.domain.repository.ProfileRepository",
+        "javax.inject.Inject"
+      ],
+      "symbols": [
+        {
+          "name": "ProfileRepositoryImpl",
+          "kind": "class",
+          "line": 13
+        },
+        {
+          "name": "getProfile",
+          "kind": "fun",
+          "line": 19,
+          "modifiers": [
+            "override",
+            "suspend"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-profile/src/main/java/com/rpla/fakestore/feature/profile/data/mapper/ProfileMappers.kt",
+      "language": "kotlin",
+      "lines": 12,
+      "imports": [
+        "com.rpla.fakestore.feature.profile.data.remote.dto.UserDto",
+        "com.rpla.fakestore.feature.profile.domain.model.Profile"
+      ],
+      "symbols": [
+        {
+          "name": "toModel",
+          "kind": "fun",
+          "line": 6
+        }
+      ]
+    },
+    {
+      "path": "feature-profile/src/main/java/com/rpla/fakestore/feature/profile/data/remote/ProfileService.kt",
+      "language": "kotlin",
+      "lines": 12,
+      "imports": [
+        "com.rpla.fakestore.feature.profile.data.remote.dto.UserDto",
+        "retrofit2.http.GET",
+        "retrofit2.http.Path"
+      ],
+      "symbols": [
+        {
+          "name": "ProfileService",
+          "kind": "interface",
+          "line": 7
+        },
+        {
+          "name": "getUser",
+          "kind": "fun",
+          "line": 9,
+          "container": "ProfileService",
+          "modifiers": [
+            "suspend"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-profile/src/main/java/com/rpla/fakestore/feature/profile/data/remote/dto/UserDto.kt",
+      "language": "kotlin",
+      "lines": 15,
+      "imports": [
+        "com.squareup.moshi.Json"
+      ],
+      "symbols": [
+        {
+          "name": "UserDto",
+          "kind": "class",
+          "line": 5,
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "NameDto",
+          "kind": "class",
+          "line": 12,
+          "modifiers": [
+            "data"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-profile/src/main/java/com/rpla/fakestore/feature/profile/di/ProfileModule.kt",
+      "language": "kotlin",
+      "lines": 28,
+      "imports": [
+        "com.rpla.fakestore.feature.profile.data.ProfileRepositoryImpl",
+        "com.rpla.fakestore.feature.profile.data.remote.ProfileService",
+        "com.rpla.fakestore.feature.profile.domain.repository.ProfileRepository",
+        "dagger.Binds",
+        "dagger.Module",
+        "dagger.Provides",
+        "dagger.hilt.InstallIn",
+        "dagger.hilt.components.SingletonComponent",
+        "retrofit2.Retrofit",
+        "javax.inject.Singleton"
+      ],
+      "symbols": [
+        {
+          "name": "ProfileModule",
+          "kind": "object",
+          "line": 16
+        },
+        {
+          "name": "provideProfileService",
+          "kind": "fun",
+          "line": 19,
+          "container": "ProfileModule"
+        },
+        {
+          "name": "ProfileBindingsModule",
+          "kind": "class",
+          "line": 23,
+          "container": "ProfileModule",
+          "modifiers": [
+            "abstract"
+          ]
+        },
+        {
+          "name": "bindProfileRepository",
+          "kind": "fun",
+          "line": 26,
+          "container": "ProfileBindingsModule",
+          "modifiers": [
+            "abstract"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-profile/src/main/java/com/rpla/fakestore/feature/profile/domain/GetProfileRequest.kt",
+      "language": "kotlin",
+      "lines": 5,
+      "imports": [],
+      "symbols": [
+        {
+          "name": "GetProfileRequest",
+          "kind": "class",
+          "line": 3
+        }
+      ]
+    },
+    {
+      "path": "feature-profile/src/main/java/com/rpla/fakestore/feature/profile/domain/model/Profile.kt",
+      "language": "kotlin",
+      "lines": 8,
+      "imports": [],
+      "symbols": [
+        {
+          "name": "Profile",
+          "kind": "class",
+          "line": 3,
+          "modifiers": [
+            "data"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-profile/src/main/java/com/rpla/fakestore/feature/profile/domain/repository/ProfileRepository.kt",
+      "language": "kotlin",
+      "lines": 8,
+      "imports": [
+        "com.rpla.fakestore.core.domain.entity.ResultBundle",
+        "com.rpla.fakestore.feature.profile.domain.model.Profile"
+      ],
+      "symbols": [
+        {
+          "name": "ProfileRepository",
+          "kind": "interface",
+          "line": 6
+        },
+        {
+          "name": "getProfile",
+          "kind": "fun",
+          "line": 7,
+          "container": "ProfileRepository",
+          "modifiers": [
+            "suspend"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-profile/src/main/java/com/rpla/fakestore/feature/profile/domain/usecase/GetProfileUseCase.kt",
+      "language": "kotlin",
+      "lines": 16,
+      "imports": [
+        "com.rpla.fakestore.core.domain.base.BaseUseCase",
+        "com.rpla.fakestore.core.domain.entity.ResultBundle",
+        "com.rpla.fakestore.feature.profile.domain.GetProfileRequest",
+        "com.rpla.fakestore.feature.profile.domain.model.Profile",
+        "com.rpla.fakestore.feature.profile.domain.repository.ProfileRepository",
+        "javax.inject.Inject"
+      ],
+      "symbols": [
+        {
+          "name": "GetProfileUseCase",
+          "kind": "class",
+          "line": 10
+        },
+        {
+          "name": "run",
+          "kind": "fun",
+          "line": 15,
+          "modifiers": [
+            "override",
+            "suspend"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-profile/src/main/java/com/rpla/fakestore/feature/profile/ui/view/ProfileRoute.kt",
+      "language": "kotlin",
+      "lines": 28,
+      "imports": [
+        "androidx.compose.foundation.layout.PaddingValues",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.runtime.LaunchedEffect",
+        "androidx.compose.runtime.getValue",
+        "androidx.hilt.navigation.compose.hiltViewModel",
+        "androidx.lifecycle.compose.collectAsStateWithLifecycle",
+        "com.rpla.fakestore.feature.profile.ui.viewmodel.ProfileIntent",
+        "com.rpla.fakestore.feature.profile.ui.viewmodel.ProfileViewModel"
+      ],
+      "symbols": [
+        {
+          "name": "ProfileRoute",
+          "kind": "fun",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "path": "feature-profile/src/main/java/com/rpla/fakestore/feature/profile/ui/view/ProfileScreen.kt",
+      "language": "kotlin",
+      "lines": 276,
+      "imports": [
+        "androidx.compose.foundation.layout.Arrangement",
+        "androidx.compose.foundation.layout.Column",
+        "androidx.compose.foundation.layout.PaddingValues",
+        "androidx.compose.foundation.layout.Row",
+        "androidx.compose.foundation.layout.Spacer",
+        "androidx.compose.foundation.layout.fillMaxSize",
+        "androidx.compose.foundation.layout.fillMaxWidth",
+        "androidx.compose.foundation.layout.height",
+        "androidx.compose.foundation.layout.padding",
+        "androidx.compose.material.icons.Icons",
+        "androidx.compose.material.icons.outlined.AccountCircle",
+        "androidx.compose.material.icons.outlined.Email",
+        "androidx.compose.material.icons.outlined.FavoriteBorder",
+        "androidx.compose.material3.Button",
+        "androidx.compose.material3.Card",
+        "androidx.compose.material3.CardDefaults",
+        "androidx.compose.material3.Icon",
+        "androidx.compose.material3.MaterialTheme",
+        "androidx.compose.material3.Surface",
+        "androidx.compose.material3.Text",
+        "androidx.compose.runtime.Composable",
+        "androidx.compose.ui.Alignment",
+        "androidx.compose.ui.Modifier",
+        "androidx.compose.ui.platform.testTag",
+        "androidx.compose.ui.res.stringResource",
+        "androidx.compose.ui.text.font.FontWeight",
+        "androidx.compose.ui.unit.dp",
+        "com.rpla.fakestore.core.ui.view.LoadingItem",
+        "com.rpla.fakestore.core.ui.view.testtags.TestTags.PROFILE_DETAILS",
+        "com.rpla.fakestore.core.ui.view.testtags.TestTags.PROFILE_EMAIL",
+        "com.rpla.fakestore.core.ui.view.testtags.TestTags.PROFILE_FAVORITES_COUNT",
+        "com.rpla.fakestore.feature.profile.R",
+        "com.rpla.fakestore.feature.profile.ui.viewmodel.ProfileState"
+      ],
+      "symbols": [
+        {
+          "name": "ProfileScreen",
+          "kind": "fun",
+          "line": 38
+        },
+        {
+          "name": "ProfileHeader",
+          "kind": "fun",
+          "line": 90,
+          "modifiers": [
+            "private"
+          ]
+        },
+        {
+          "name": "FavoritesCountCard",
+          "kind": "fun",
+          "line": 120,
+          "modifiers": [
+            "private"
+          ]
+        },
+        {
+          "name": "ContactCard",
+          "kind": "fun",
+          "line": 166,
+          "modifiers": [
+            "private"
+          ]
+        },
+        {
+          "name": "DetailsCard",
+          "kind": "fun",
+          "line": 201,
+          "modifiers": [
+            "private"
+          ]
+        },
+        {
+          "name": "ProfileKeyValueRow",
+          "kind": "fun",
+          "line": 228,
+          "modifiers": [
+            "private"
+          ]
+        },
+        {
+          "name": "ProfileError",
+          "kind": "fun",
+          "line": 251,
+          "modifiers": [
+            "private"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-profile/src/main/java/com/rpla/fakestore/feature/profile/ui/viewmodel/ProfileAction.kt",
+      "language": "kotlin",
+      "lines": 7,
+      "imports": [
+        "com.rpla.fakestore.core.ui.view.viewmodel.ViewAction"
+      ],
+      "symbols": [
+        {
+          "name": "ProfileAction",
+          "kind": "interface",
+          "line": 5,
+          "modifiers": [
+            "sealed"
+          ]
+        },
+        {
+          "name": "LoadProfile",
+          "kind": "object",
+          "line": 6,
+          "container": "ProfileAction",
+          "modifiers": [
+            "data"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-profile/src/main/java/com/rpla/fakestore/feature/profile/ui/viewmodel/ProfileIntent.kt",
+      "language": "kotlin",
+      "lines": 9,
+      "imports": [
+        "com.rpla.fakestore.core.ui.view.viewmodel.ViewIntent"
+      ],
+      "symbols": [
+        {
+          "name": "ProfileIntent",
+          "kind": "interface",
+          "line": 5,
+          "modifiers": [
+            "sealed"
+          ]
+        },
+        {
+          "name": "LoadProfile",
+          "kind": "object",
+          "line": 6,
+          "container": "ProfileIntent",
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "Retry",
+          "kind": "object",
+          "line": 8,
+          "container": "ProfileIntent",
+          "modifiers": [
+            "data"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-profile/src/main/java/com/rpla/fakestore/feature/profile/ui/viewmodel/ProfileState.kt",
+      "language": "kotlin",
+      "lines": 19,
+      "imports": [
+        "com.rpla.fakestore.core.ui.view.viewmodel.ViewState",
+        "com.rpla.fakestore.feature.profile.domain.model.Profile"
+      ],
+      "symbols": [
+        {
+          "name": "ProfileState",
+          "kind": "interface",
+          "line": 6,
+          "modifiers": [
+            "sealed"
+          ]
+        },
+        {
+          "name": "Initial",
+          "kind": "object",
+          "line": 7,
+          "container": "ProfileState",
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "Loading",
+          "kind": "object",
+          "line": 9,
+          "container": "ProfileState",
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "Error",
+          "kind": "class",
+          "line": 11,
+          "container": "ProfileState",
+          "modifiers": [
+            "data"
+          ]
+        },
+        {
+          "name": "Data",
+          "kind": "class",
+          "line": 15,
+          "container": "ProfileState",
+          "modifiers": [
+            "data"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-profile/src/main/java/com/rpla/fakestore/feature/profile/ui/viewmodel/ProfileViewModel.kt",
+      "language": "kotlin",
+      "lines": 107,
+      "imports": [
+        "androidx.lifecycle.viewModelScope",
+        "com.rpla.fakestore.core.coroutines.dispatcher.IODispatcher",
+        "com.rpla.fakestore.core.domain.usecase.favorites.ObserveFavoritesCountUseCase",
+        "com.rpla.fakestore.core.ui.view.viewmodel.BaseViewModel",
+        "com.rpla.fakestore.feature.profile.domain.GetProfileRequest",
+        "com.rpla.fakestore.feature.profile.domain.model.Profile",
+        "com.rpla.fakestore.feature.profile.domain.usecase.GetProfileUseCase",
+        "dagger.hilt.android.lifecycle.HiltViewModel",
+        "kotlinx.coroutines.CoroutineDispatcher",
+        "kotlinx.coroutines.Job",
+        "kotlinx.coroutines.flow.MutableStateFlow",
+        "kotlinx.coroutines.flow.collectLatest",
+        "kotlinx.coroutines.flow.filterNotNull",
+        "kotlinx.coroutines.flow.map",
+        "kotlinx.coroutines.launch",
+        "kotlinx.coroutines.withContext",
+        "javax.inject.Inject"
+      ],
+      "symbols": [
+        {
+          "name": "ProfileViewModel",
+          "kind": "class",
+          "line": 22
+        },
+        {
+          "name": "createInitialState",
+          "kind": "fun",
+          "line": 37,
+          "modifiers": [
+            "override"
+          ]
+        },
+        {
+          "name": "mapIntentToAction",
+          "kind": "fun",
+          "line": 39,
+          "modifiers": [
+            "override"
+          ]
+        },
+        {
+          "name": "handleAction",
+          "kind": "fun",
+          "line": 45,
+          "modifiers": [
+            "override"
+          ]
+        },
+        {
+          "name": "load",
+          "kind": "fun",
+          "line": 51,
+          "modifiers": [
+            "private"
+          ]
+        },
+        {
+          "name": "startObserversIfNeeded",
+          "kind": "fun",
+          "line": 78,
+          "modifiers": [
+            "private"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "feature-profile/src/test/java/com/rpla/fakestore/feature/profile/data/ProfileRepositoryImplTest.kt",
+      "language": "kotlin",
+      "lines": 82,
+      "imports": [
+        "com.rpla.fakestore.core.domain.entity.ErrorResult",
+        "com.rpla.fakestore.core.network.exception.RemoteException",
+        "com.rpla.fakestore.core.network.mapper.ErrorMapper",
+        "com.rpla.fakestore.feature.profile.data.remote.ProfileService",
+        "com.rpla.fakestore.feature.profile.data.remote.dto.NameDto",
+        "com.rpla.fakestore.feature.profile.data.remote.dto.UserDto",
+        "io.kotest.matchers.shouldBe",
+        "io.mockk.coEvery",
+        "io.mockk.mockk",
+        "kotlinx.coroutines.test.runTest",
+        "org.junit.jupiter.api.BeforeEach",
+        "org.junit.jupiter.api.Test"
+      ],
+      "symbols": [
+        {
+          "name": "ProfileRepositoryImplTest",
+          "kind": "class",
+          "line": 16
+        },
+        {
+          "name": "setUp",
+          "kind": "fun",
+          "line": 22,
+          "container": "ProfileRepositoryImplTest"
+        }
+      ]
+    },
+    {
+      "path": "feature-profile/src/test/java/com/rpla/fakestore/feature/profile/ui/viewmodel/ProfileViewModelTest.kt",
+      "language": "kotlin",
+      "lines": 169,
+      "imports": [
+        "com.rpla.fakestore.core.domain.entity.ErrorResult",
+        "com.rpla.fakestore.core.domain.entity.ResultBundle",
+        "com.rpla.fakestore.core.domain.usecase.favorites.ObserveFavoritesCountUseCase",
+        "com.rpla.fakestore.feature.profile.domain.GetProfileRequest",
+        "com.rpla.fakestore.feature.profile.domain.model.Profile",
+        "com.rpla.fakestore.feature.profile.domain.usecase.GetProfileUseCase",
+        "io.kotest.matchers.shouldBe",
+        "io.kotest.matchers.types.shouldBeInstanceOf",
+        "io.mockk.coEvery",
+        "io.mockk.coVerify",
+        "io.mockk.confirmVerified",
+        "io.mockk.every",
+        "io.mockk.mockk",
+        "kotlinx.coroutines.Dispatchers",
+        "kotlinx.coroutines.ExperimentalCoroutinesApi",
+        "kotlinx.coroutines.flow.MutableSharedFlow",
+        "kotlinx.coroutines.flow.take",
+        "kotlinx.coroutines.flow.toList",
+        "kotlinx.coroutines.launch",
+        "kotlinx.coroutines.test.StandardTestDispatcher",
+        "kotlinx.coroutines.test.UnconfinedTestDispatcher",
+        "kotlinx.coroutines.test.advanceUntilIdle",
+        "kotlinx.coroutines.test.resetMain",
+        "kotlinx.coroutines.test.runCurrent",
+        "kotlinx.coroutines.test.runTest",
+        "kotlinx.coroutines.test.setMain",
+        "org.junit.jupiter.api.AfterEach",
+        "org.junit.jupiter.api.BeforeEach",
+        "org.junit.jupiter.api.Test"
+      ],
+      "symbols": [
+        {
+          "name": "ProfileViewModelTest",
+          "kind": "class",
+          "line": 34
+        },
+        {
+          "name": "setUp",
+          "kind": "fun",
+          "line": 44,
+          "container": "ProfileViewModelTest"
+        },
+        {
+          "name": "tearDown",
+          "kind": "fun",
+          "line": 61,
+          "container": "ProfileViewModelTest"
+        }
+      ]
+    }
+  ]
+}
