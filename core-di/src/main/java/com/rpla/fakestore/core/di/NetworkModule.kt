@@ -1,7 +1,6 @@
 package com.rpla.fakestore.core.di
 
 import android.content.Context
-import com.rpla.fakestore.core.network.retrofit.RetrofitInterceptor
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
@@ -36,20 +35,12 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun providesRetrofitInterceptor() = RetrofitInterceptor()
-
-    @Singleton
-    @Provides
-    fun providesOkHttpClient(
-        retrofitInterceptor: RetrofitInterceptor,
-        cache: Cache,
-    ): OkHttpClient {
+    fun providesOkHttpClient(cache: Cache): OkHttpClient {
         val okHttpClient = OkHttpClient.Builder()
         val loggingInterceptor = HttpLoggingInterceptor()
 
-        loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        loggingInterceptor.level = loggingLevel(BuildConfig.DEBUG)
         okHttpClient.addNetworkInterceptor(loggingInterceptor)
-        okHttpClient.addInterceptor(retrofitInterceptor)
 
         okHttpClient.cache(cache)
         okHttpClient.writeTimeout(TIMEOUT, TimeUnit.SECONDS)
@@ -57,6 +48,13 @@ object NetworkModule {
         okHttpClient.connectTimeout(TIMEOUT, TimeUnit.SECONDS)
         return okHttpClient.build()
     }
+
+    internal fun loggingLevel(isDebug: Boolean): HttpLoggingInterceptor.Level =
+        if (isDebug) {
+            HttpLoggingInterceptor.Level.BODY
+        } else {
+            HttpLoggingInterceptor.Level.NONE
+        }
 
     @Provides
     @Singleton
