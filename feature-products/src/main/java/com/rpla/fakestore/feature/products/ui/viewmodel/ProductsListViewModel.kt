@@ -12,6 +12,8 @@ import com.rpla.fakestore.feature.products.ui.mapper.toUiListItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -30,6 +32,8 @@ class ProductsListViewModel
         private var productsCache: List<Product> = emptyList()
         private var observeFavoritesJob: Job? = null
         private val pendingFavoriteToggles = mutableSetOf<Int>()
+        private val _events = MutableSharedFlow<ProductListUiEvent>()
+        val events = _events.asSharedFlow()
 
         override fun createInitialState(): ProductListState = ProductListState.InitialState
 
@@ -127,7 +131,7 @@ class ProductsListViewModel
                 // revert if fail
                 if (result.error != null) {
                     revertFavoriteUi(productId, before.isFavorite)
-                    // todo snackbar error??
+                    _events.emit(ProductListUiEvent.ShowFavoriteToggleError)
                 }
             }
         }
