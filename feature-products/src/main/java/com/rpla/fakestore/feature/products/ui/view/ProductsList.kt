@@ -6,10 +6,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -25,6 +28,7 @@ import com.rpla.fakestore.core.ui.view.ProductGrid
 import com.rpla.fakestore.feature.products.R
 import com.rpla.fakestore.feature.products.ui.viewmodel.ProductListIntent
 import com.rpla.fakestore.feature.products.ui.viewmodel.ProductListState
+import com.rpla.fakestore.feature.products.ui.viewmodel.ProductListUiEvent
 import com.rpla.fakestore.feature.products.ui.viewmodel.ProductsListViewModel
 
 @Composable
@@ -33,19 +37,39 @@ fun ProductsRoute(
     viewModel: ProductsListViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val snackbarHostState = remember { SnackbarHostState() }
+    val favoriteToggleErrorMessage = stringResource(R.string.favorite_toggle_error)
 
     LaunchedEffect(Unit) {
         viewModel.dispatchIntent(ProductListIntent.ProductList)
     }
 
-    ProductList(
-        uiState = state,
-        paddingValues = paddingValues,
-        onRetry = { viewModel.dispatchIntent(ProductListIntent.ProductList) },
-        onFavoriteClicked = { id ->
-            viewModel.dispatchIntent(ProductListIntent.ToggleFavorite(id))
-        },
-    )
+    LaunchedEffect(viewModel, favoriteToggleErrorMessage) {
+        viewModel.events.collect { event ->
+            when (event) {
+                ProductListUiEvent.ShowFavoriteToggleError -> snackbarHostState.showSnackbar(favoriteToggleErrorMessage)
+            }
+        }
+    }
+
+    Box(modifier = Modifier.fillMaxSize()) {
+        ProductList(
+            uiState = state,
+            paddingValues = paddingValues,
+            onRetry = { viewModel.dispatchIntent(ProductListIntent.ProductList) },
+            onFavoriteClicked = { id ->
+                viewModel.dispatchIntent(ProductListIntent.ToggleFavorite(id))
+            },
+        )
+
+        SnackbarHost(
+            hostState = snackbarHostState,
+            modifier =
+                Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(paddingValues),
+        )
+    }
 }
 
 @Composable
