@@ -8,6 +8,7 @@ plugins {
 android {
     namespace = "com.rpla.fakestore.core.di"
     compileSdk = 36
+    buildFeatures { buildConfig = true }
 
     defaultConfig {
         minSdk = 26
@@ -19,6 +20,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = "17"
+    }
+
+    testOptions {
+        unitTests.all {
+            it.useJUnitPlatform()
+        }
     }
 }
 
@@ -34,4 +41,8 @@ dependencies {
 
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
+
+    testImplementation(libs.junit5.api)
+    testRuntimeOnly(libs.junit5.engine)
+    testRuntimeOnly(libs.junit5.launcher)
 }
