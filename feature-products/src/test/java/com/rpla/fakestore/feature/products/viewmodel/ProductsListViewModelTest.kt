@@ -10,6 +10,7 @@ import com.rpla.fakestore.feature.products.fixtures.ProductFixtures.product1
 import com.rpla.fakestore.feature.products.fixtures.ProductFixtures.product4
 import com.rpla.fakestore.feature.products.ui.viewmodel.ProductListIntent
 import com.rpla.fakestore.feature.products.ui.viewmodel.ProductListState
+import com.rpla.fakestore.feature.products.ui.viewmodel.ProductListUiEvent
 import com.rpla.fakestore.feature.products.ui.viewmodel.ProductsListViewModel
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
@@ -242,6 +243,51 @@ class ProductsListViewModelTest {
 
             // Then: reverted
             (viewModel.state.value as ProductListState.ProductsListData).items[0].isFavorite shouldBe false
+        }
+
+    @Test
+    fun `when ToggleFavorite usecase fails then emits favorite error event`() =
+        runTest(mainDispatcher) {
+            // Given
+            val favoriteIdsFlow = MutableSharedFlow<Set<Int>>(replay = 1)
+            favoriteIdsFlow.emit(emptySet())
+            every { observeFavoriteIdsUseCase.invoke() } returns favoriteIdsFlow
+
+            val products = listOf(product1(isFavorite = false))
+
+            coEvery { getProductsListUseCase(any<GetProductListRequest>()) } returns
+                ResultBundle(
+                    data = products,
+                    error = null,
+                )
+
+            coEvery { toggleFavoriteUseCase(any()) } returns
+                ResultBundle(
+                    data = null,
+                    error = ErrorResult.GenericError,
+                )
+
+            viewModel.dispatchIntent(ProductListIntent.ProductList)
+            advanceUntilIdle()
+
+            val events = mutableListOf<ProductListUiEvent>()
+            val collectJob =
+                launch(UnconfinedTestDispatcher(testScheduler)) {
+                    viewModel.events.take(1).toList(events)
+                }
+
+            // When
+            viewModel.dispatchIntent(ProductListIntent.ToggleFavorite(1))
+
+            // Then (optimistic UI)
+            (viewModel.state.value as ProductListState.ProductsListData).items[0].isFavorite shouldBe true
+
+            advanceUntilIdle()
+
+            (viewModel.state.value as ProductListState.ProductsListData).items[0].isFavorite shouldBe false
+            events shouldBe listOf(ProductListUiEvent.ShowFavoriteToggleError)
+
+            collectJob.cancel()
         }
 
     @Test
