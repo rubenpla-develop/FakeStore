@@ -9,6 +9,8 @@ import com.rpla.fakestore.feature.favorites.ui.mapper.toUiListItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -23,6 +25,8 @@ class FavoritesListViewModel
         @IODispatcher private val dispatcher: CoroutineDispatcher,
     ) : BaseViewModel<FavoritesListIntent, FavoritesListAction, FavoritesListState>() {
         private var observeJob: Job? = null
+        private val _events = MutableSharedFlow<FavoritesListUiEvent>()
+        val events = _events.asSharedFlow()
 
         override fun createInitialState(): FavoritesListState = FavoritesListState.InitialState
 
@@ -59,9 +63,13 @@ class FavoritesListViewModel
 
         private fun removeFavorite(productId: Int) {
             viewModelScope.launch {
-                withContext(dispatcher) {
-                    // remove-only: en Favorites siempre es "unpin"
-                    removeFavoriteUseCase(productId)
+                val result =
+                    withContext(dispatcher) {
+                        removeFavoriteUseCase(productId)
+                    }
+
+                if (result.error != null) {
+                    _events.emit(FavoritesListUiEvent.ShowRemoveFavoriteError)
                 }
                 // flow will observe changes and refresh list
             }
