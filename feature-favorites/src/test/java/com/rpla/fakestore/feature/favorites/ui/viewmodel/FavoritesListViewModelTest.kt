@@ -1,5 +1,6 @@
 package com.rpla.fakestore.feature.favorites.ui.viewmodel
 
+import com.rpla.fakestore.core.domain.entity.ErrorResult
 import com.rpla.fakestore.core.domain.entity.ResultBundle
 import com.rpla.fakestore.core.domain.usecase.favorites.ObserveFavoritesUseCase
 import com.rpla.fakestore.core.domain.usecase.favorites.RemoveFavoriteUseCase
@@ -167,6 +168,51 @@ class FavoritesListViewModelTest {
 
             // Then
             verify(exactly = 1) { observeFavoritesUseCase.invoke() }
+        }
+
+    @Test
+    fun `when removeFavorite fails then emits ShowRemoveFavoriteError event`() =
+        runTest(mainDispatcher) {
+            // Given
+            coEvery { removeFavoriteUseCase(10) } returns
+                ResultBundle(data = null, error = ErrorResult.GenericError)
+
+            val events = mutableListOf<FavoritesListUiEvent>()
+            val collectJob =
+                launch(UnconfinedTestDispatcher(testScheduler)) {
+                    viewModel.events.toList(events)
+                }
+
+            // When
+            viewModel.dispatchIntent(FavoritesListIntent.RemoveFavorite(10))
+            advanceUntilIdle()
+
+            // Then
+            events shouldBe listOf(FavoritesListUiEvent.ShowRemoveFavoriteError)
+
+            collectJob.cancel()
+        }
+
+    @Test
+    fun `when removeFavorite succeeds then no event is emitted`() =
+        runTest(mainDispatcher) {
+            // Given
+            coEvery { removeFavoriteUseCase(10) } returns ResultBundle(data = Unit, error = null)
+
+            val events = mutableListOf<FavoritesListUiEvent>()
+            val collectJob =
+                launch(UnconfinedTestDispatcher(testScheduler)) {
+                    viewModel.events.toList(events)
+                }
+
+            // When
+            viewModel.dispatchIntent(FavoritesListIntent.RemoveFavorite(10))
+            advanceUntilIdle()
+
+            // Then
+            events shouldBe emptyList()
+
+            collectJob.cancel()
         }
 
     @Test
