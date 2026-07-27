@@ -5,10 +5,13 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -20,6 +23,7 @@ import com.rpla.fakestore.core.ui.view.ProductGrid
 import com.rpla.fakestore.feature.favorites.R
 import com.rpla.fakestore.feature.favorites.ui.viewmodel.FavoritesListIntent
 import com.rpla.fakestore.feature.favorites.ui.viewmodel.FavoritesListState
+import com.rpla.fakestore.feature.favorites.ui.viewmodel.FavoritesListUiEvent
 import com.rpla.fakestore.feature.favorites.ui.viewmodel.FavoritesListViewModel
 
 @Composable
@@ -28,16 +32,37 @@ fun FavoritesRoute(
     viewModel: FavoritesListViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val snackbarHostState = remember { SnackbarHostState() }
+    val removeErrorMessage = stringResource(R.string.favorites_remove_error)
 
     LaunchedEffect(Unit) {
         viewModel.dispatchIntent(FavoritesListIntent.FavoritesList)
     }
 
-    FavoritesList(
-        uiState = state,
-        paddingValues = paddingValues,
-        onUnpin = { id -> viewModel.dispatchIntent(FavoritesListIntent.RemoveFavorite(id)) },
-    )
+    LaunchedEffect(viewModel, removeErrorMessage) {
+        viewModel.events.collect { event ->
+            when (event) {
+                FavoritesListUiEvent.ShowRemoveFavoriteError ->
+                    snackbarHostState.showSnackbar(removeErrorMessage)
+            }
+        }
+    }
+
+    Box(modifier = Modifier.fillMaxSize()) {
+        FavoritesList(
+            uiState = state,
+            paddingValues = paddingValues,
+            onUnpin = { id -> viewModel.dispatchIntent(FavoritesListIntent.RemoveFavorite(id)) },
+        )
+
+        SnackbarHost(
+            hostState = snackbarHostState,
+            modifier =
+                Modifier
+                    .align(Alignment.BottomCenter)
+                    .padding(paddingValues),
+        )
+    }
 }
 
 @Composable
